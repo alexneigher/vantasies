@@ -1,11 +1,13 @@
 class ListingsController < ApplicationController
 
+  before_action :authenticate_user!, only: :new
+
   def new
     @listing = Listing.new
   end
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user.listings.new(listing_params)
 
     if @listing.save
       redirect_to listing_path(@listing)

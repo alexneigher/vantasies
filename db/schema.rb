@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20171018044841) do
     t.inet "last_sign_in_ip"
     t.string "name"
     t.text "bio"
-    t.string "type"
+    t.integer "business_type", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

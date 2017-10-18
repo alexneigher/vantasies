@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       t.string :name
       t.text :bio
-      t.string :type
+      t.integer :business_type, default: 0
 
       t.timestamps null: false
     end
