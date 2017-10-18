@@ -25,10 +25,11 @@
             #card-errors{:role => "alert"}
           %button Submit Payment
 
-        = form_tag charges_path, method: :post, id: 'chargeForm' do
-          = text_field_tag ['stripe_token']
-          = text_field_tag ['user_id'], current_user.id
-          = text_field_tag ['van_id'], @van.id
+        .hidden
+          = form_tag charges_path, method: :post, id: 'chargeForm' do
+            = text_field_tag ['stripe_token']
+            = text_field_tag ['user_id'], current_user.id
+            = text_field_tag ['van_id'], @van.id
 
       .modal-footer
         %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close
