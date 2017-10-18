@@ -31,9 +31,10 @@
 .navbar-nav{
   float: right;
 }
-.navbar-brand{
+.navbar-default .navbar-brand{
   transform: skewY(-8deg);
   text-transform: uppercase;
+  color: #ffeb3b;
 }
 .navbar-default .navbar-nav > li > a{
   color: #131313;
@@ -54,6 +55,38 @@
     transition: all .2s ease-in-out;
   }
 }
+label{
+  font-size: 13px;
+}
+.panel{
+  -webkit-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.15);
+}
 .btn{
-
+  padding: 20px 30px;
+  border-radius:0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.btn-default{
+  border:1px solid #efefef;
+  background: #fff;
+  color: rgba(0,0,0,0.7);
+  -webkit-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.1);
+}
+.btn-primary{
+  background: #ffeb3b;
+  color: rgba(0,0,0,0.87);
+  border: none;
+  -webkit-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.1);
+  &:hover{
+    -webkit-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.3);
+  }
 }

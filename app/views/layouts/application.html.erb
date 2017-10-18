@@ -33,7 +33,7 @@
         <%= link_to 'Vantasies', root_path, class: 'navbar-brand' %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Browse Vans", vans_path  %></li>
+            <li><%= link_to "Browse", vans_path  %></li>
             <li><%= link_to "About", vans_path  %></li>
             <li><%= link_to "Sell a Van", new_van_path, class: ''  %></li>
             <%= render partial: 'layouts/navbar/user_links' %>
@@ -44,7 +44,9 @@
     <%= yield %>
 
   <footer>
-    <p>&copy; Company 2017</p>
+    <div class="row text-center pad4y">
+    <p>&copy; 2017. A <span class="superluminal"><a href="http://www.superluminal.co">Superluminal</a></span> project.</p>
+  </div>
   </footer>
   </body>
 </html>

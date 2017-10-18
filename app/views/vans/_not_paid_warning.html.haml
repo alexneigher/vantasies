@@ -2,8 +2,8 @@
 
 .row-fluid
   .not-paid-warning
-    THIS POST IS NOT LIVE. ONLY YOU (THE AUTHOR) CAN SEE THIS PAGE. PLEASE PAY US TO MAKE IT LIVE :)
-    %a{"data-target" => "#paymentModal", "data-toggle" => "modal", :href => "#paymentModal"} PAY NOW
+    Your listing isn't live yet. Only you can see this page. Enter your credit card info to publish your listing.
+    %a{"data-target" => "#paymentModal", "data-toggle" => "modal", :href => "#paymentModal", :class =>'btn btn-default'} Publish Now
 
 
 / Modal
@@ -13,17 +13,18 @@
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
-        %h4#paymentModalLabel.modal-title Get your van posted
+        %h3#paymentModalLabel.modal-title Your listing isn't live yet!
       .modal-body
-        %form#payment-form{:action => "/charge", :method => "post"}
-          .form-row
-            $99 dolla
+        %form#payment-form.form-group{:action => "/charge", :method => "post"}
+          .form-row.pad2b
+            $99 dolla plz
           .form-row
             %label{:for => "card-element"}
               Credit or debit card
             #card-element
             #card-errors{:role => "alert"}
-          %button Submit Payment
+          .form-group.m2t
+            %button.btn.btn-primary Submit Payment
 
         .hidden
           = form_tag charges_path, method: :post, id: 'chargeForm' do
@@ -32,7 +33,7 @@
             = text_field_tag ['van_id'], @van.id
 
       .modal-footer
-        %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
 
 %script{:src => "https://js.stripe.com/v3/"}
 :javascript

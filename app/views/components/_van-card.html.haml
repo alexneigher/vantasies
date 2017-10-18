@@ -1,6 +1,8 @@
 = link_to van_path(van) do
   .van-card
     .van-image
+      .van-price
+        = van.price
     .van-card-content
       .van-title
         = van.title
@@ -8,5 +10,4 @@
         = van.make
         = van.model
         = van.year
-      .van-price
-        Price
+

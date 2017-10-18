@@ -11,6 +11,8 @@ body{
   background-size: cover;
   height: calc(90vh - 51px);
   position: relative;
+  animation: kenburns 20s infinite;
+  overflow:hidden;
   .homepage-header--content{
     text-align:center;
     padding-top: 20vh;
@@ -31,6 +33,10 @@ body{
     }
   }
 }
+.signup-error{
+  color: red;
+  font-size: 15px;
+}
 .card{
   background: #FFFFFF;
   border-radius: 7px;
@@ -38,7 +44,20 @@ body{
   box-shadow: 0 2px 3px 0px rgba(0,0,0,0.1);
   padding: 15px;
 }
-
+.superluminal{
+  background: linear-gradient(135deg, #f28b41,#de5837,#af5f31);
+  -webkit-background-clip: text;
+  font-weight: 600;
+  -webkit-text-fill-color: transparent;
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+  &:hover{
+    border-bottom: 1px solid #f28b41;
+    color: #f28b41;
+  }
+}
 
 
 

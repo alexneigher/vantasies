@@ -1,108 +1,111 @@
 .container
+
   .row
-    .col-lg-12
-      %h1 Vantasies gives you the tools to more effectively sell your van.
-    .col-lg-4
-      .card.text-center
-        %h2
-          $99
-        %p Sell your van
-    .col-lg-4
-      .card.text-center
-        %h2
-          $599
-        %p Are you a dealer or builer? Post unlimited vans.
-  .row.justify-content-lg-center
-    .col.col-lg-5
+    .col-lg-8.col-lg-offset-2
+      .row
+        .col-lg-12
+          %h1 Vantasies gives you the tools to more effectively sell your van.
+        .col-lg-6
+          .card.text-center
+            %h2
+              $99
+            %p Sell your van
+        .col-lg-6
+          .card.text-center
+            %h2
+              $599
+            %p Are you a dealer or builer? Post unlimited vans.
       .form-area
         = form_for @van, url: vans_path, method: :post, html: {multipart: true} do |f|
-          .form-group
-            = file_field_tag "photos[]", type: :file, multiple: true
           %br{:style => "clear:both"}/
-          %h3{:style => "margin-bottom: 25px; text-align: center;"} New van
+          %h3{:style => "margin-bottom: 25px;"} New van
+          .panel.pad3
+            .form-group
+              %label Title
+              = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
+              %p.error= show_errors(@van, :title)
+            .form-group
+              %label Location
+              = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
+              %p.error= show_errors(@van, :location)
+            .form-group
+              %label Condition
+              = f.text_field :condition, class: 'form-control', placeholder: 'Boulder, CO'
+              %p.error= show_errors(@van, :condition)
 
-          .form-group
-            %label Title
-            = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
-            %p.error= show_errors(@van, :title)
-          .form-group
-            %label Location
-            = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
-            %p.error= show_errors(@van, :location)
+            .form-group
+              %label Description
+              = f.text_area :description, class: 'form-control', rows: 3
+              %p.error= show_errors(@van, :description)
+            .row
+              .col-lg-4
+                .form-group
+                  %label Make
+                  = f.text_field :make, class: 'form-control', placeholder: 'Ford'
+                  %p.error= show_errors(@van, :make)
+              .col-lg-4
+                %label Model
+                = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
+                %p.error= show_errors(@van, :model)
 
-          .form-group
-            %label
-              = f.check_box :can_deliver
-              Willing to Deliver?
+              .col-lg-4
+                %label Year
+                = f.text_field :year, class: 'form-control', placeholder: '2001'
+                %p.error= show_errors(@van, :year)
 
-          .form-group
-            %label Description
-            = f.text_area :description, class: 'form-control', rows: 3
-            %p.error= show_errors(@van, :description)
-
-          .form-group
-            %label Make
-            = f.text_field :make, class: 'form-control', placeholder: 'Ford'
-            %p.error= show_errors(@van, :make)
-
-            %label Model
-            = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
-            %p.error= show_errors(@van, :model)
+            .row
+              .col-lg-3
+                .form-group
+                  %label Price
+                  = f.text_field :price, class: 'form-control', placeholder: '5000'
+                  %p.error= show_errors(@van, :price)
 
 
-            %label Year
-            = f.text_field :year, class: 'form-control', placeholder: '2001'
-            %p.error= show_errors(@van, :year)
+          .panel.pad3
+            .form-group
+              %label
+                = f.check_box :can_deliver
+                Willing to Deliver?
+            .row
+              .col-lg-3
+                .form-group
+                  %label Mileage
+                  = f.text_field :mileage, class: 'form-control', placeholder: '120,000'
+                  %p.error= show_errors(@van, :mileage)
+            .row
+              .col-lg-4
+                .form-group
+                  %label Transmision
+                  = f.select :transmission, options_for_select(["Automatic","Manual"]), {}, class: "form-control"
+                  %p.error= show_errors(@van, :transmision)
+              .col-lg-4
+                .form-group
+                  %label Fuel Type
+                  = f.select :fuel_type, options_for_select(["Hybrid","Diesel","Electric"]), {}, class: "form-control"
+                  %p.error= show_errors(@van, :fuel_type)
+              .col-lg-4
+                .form-group
+                  %label Drive Train
+                  = f.select :fuel_type, options_for_select(["Front Wheel Drive","Rear Wheel Drive","4WD", "AWD"]), {}, class: "form-control"
+                  %p.error= show_errors(@van, :drivetrain)
+            .row
+              .col-lg-3
+                .form-group
+                  %label VIN
+                  = f.text_field :vin, class: 'form-control', placeholder: '12erRF567'
+                  %p.error= show_errors(@van, :vin)
 
-          .form-group
-            %label Condition
-            = f.text_field :condition, class: 'form-control', placeholder: 'Meh+'
-            %p.error= show_errors(@van, :condition)
-
-          .form-group
-            %label Mileage
-            = f.text_field :mileage, class: 'form-control', placeholder: '120,000'
-            %p.error= show_errors(@van, :mileage)
-
-          .form-group
-            %label Price
-            = f.text_field :price, class: 'form-control', placeholder: '5000'
-            %p.error= show_errors(@van, :price)
-
-          .form-group
-            %label transmision
-            = f.text_field :transmission, class: 'form-control', placeholder: 'Automatic'
-            %p.error= show_errors(@van, :transmision)
-
-          .form-group
-            %label VIN
-            = f.text_field :vin, class: 'form-control', placeholder: '12erRF567'
-            %p.error= show_errors(@van, :vin)
-
-          .form-group
-            %label Fuel Type
-            = f.text_field :fuel_type, class: 'form-control', placeholder: 'Diesel'
-            %p.error= show_errors(@van, :fuel_type)
-
-          .form-group
-            %label Drive Train
-            = f.text_field :drivetrain, class: 'form-control', placeholder: '4WD'
-            %p.error= show_errors(@van, :drivetrain)
-
-          .form-group
-            %label transmision
-            = f.text_field :transmission, class: 'form-control', placeholder: 'Automatic'
-            %p.error= show_errors(@van, :transmision)
-
-          .form-group
-            %label Features
-            = f.text_area :features, class: 'form-control', rows: 3, placeholder: 'Solar, Fridge'
-            %p.error= show_errors(@van, :features)
-
-          .form-group
-            %label Instagram URL
-            = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
-            %p.error= show_errors(@van, :instagram_url)
+            .form-group
+              %label Features
+              = f.text_area :features, class: 'form-control', rows: 3, placeholder: 'Solar, Fridge'
+              %p.error= show_errors(@van, :features)
+          .panel.pad3
+            .form-group
+              = file_field_tag "photos[]", type: :file, multiple: true
+            .form-group
+              %label Instagram URL
+              = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
+              %p.error= show_errors(@van, :instagram_url)
 
 
 
