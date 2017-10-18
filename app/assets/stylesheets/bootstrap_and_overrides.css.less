@@ -20,17 +20,7 @@
 // Example:
 // @link-color: #ff0000;
 
-.navbar{
-  margin-bottom: -50px;
-  background: transparent;
-  border-bottom: none;
-  color: #fff;
-}
-.navbar-brand{
-  color: #fff;
-  font-weight: 600;
-  text-transform: uppercase;
-}
+
 .navbar-nav{
   float: right;
 }
@@ -39,5 +29,19 @@
   float: right;
   font-weight: 600;
   text-transform: uppercase;
+
+}
+.form-control{
+  height: 48px;
+  box-shadow: none;
+  transition: all .2s ease-in-out;
+  &:focus{
+    box-shadow: none;
+    border-color: #fab93e;
+    box-shadow: 0px 0px 0px 1px #fab93e;
+    transition: all .2s ease-in-out;
+  }
+}
+.btn{
 
 }
