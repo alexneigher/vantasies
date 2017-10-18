@@ -6,34 +6,11 @@ body{
     font-weight: 600;
   }
 }
-.image-header{
-  .navbar{
-    margin-bottom: -50px;
-    background: transparent;
-    border-bottom: none;
-    color: #fff;
-  }
-  .navbar-brand{
-    color: #fff;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-}
 .homepage-header{
   background: url('https://images.unsplash.com/photo-1491314768749-82db5ebd6499?dpr=1&auto=format&fit=crop&w=1334&h=&q=60&cs=tinysrgb&crop=') center center no-repeat;
   background-size: cover;
   height: 100vh;
   position: relative;
-  &:after{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    content: '';
-    background: rgba(0,0,0,0.3);
-  }
   .homepage-header--content{
     text-align:center;
     padding-top: 20vh;
