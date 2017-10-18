@@ -24,6 +24,9 @@ gem "twitter-bootstrap-rails"
 gem "font-awesome-rails"
 
 
+#Payments
+gem 'stripe'
+
 # Photo Upload
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
