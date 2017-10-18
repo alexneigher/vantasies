@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   root "welcome#show"
 
+  resources :photos
+
   resources :vans
 end

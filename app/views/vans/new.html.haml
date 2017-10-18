@@ -54,6 +54,57 @@
             %p.error= show_errors(@van, :year)
 
 
+          .form-group
+            %label Condition
+            = f.text_field :condition, class: 'form-control', placeholder: 'Meh+'
+            %p.error= show_errors(@van, :condition)
+
+          .form-group
+            %label Mileage
+            = f.text_field :mileage, class: 'form-control', placeholder: '120,000'
+            %p.error= show_errors(@van, :mileage)
+
+          .form-group
+            %label Price
+            = f.text_field :price, class: 'form-control', placeholder: '5000'
+            %p.error= show_errors(@van, :price)
+
+          .form-group
+            %label transmision
+            = f.text_field :transmission, class: 'form-control', placeholder: 'Automatic'
+            %p.error= show_errors(@van, :transmision)
+
+          .form-group
+            %label VIN
+            = f.text_field :vin, class: 'form-control', placeholder: '12erRF567'
+            %p.error= show_errors(@van, :vin)
+
+          .form-group
+            %label Fuel Type
+            = f.text_field :fuel_type, class: 'form-control', placeholder: 'Diesel'
+            %p.error= show_errors(@van, :fuel_type)
+
+          .form-group
+            %label Drive Train
+            = f.text_field :drivetrain, class: 'form-control', placeholder: '4WD'
+            %p.error= show_errors(@van, :drivetrain)
+
+          .form-group
+            %label transmision
+            = f.text_field :transmission, class: 'form-control', placeholder: 'Automatic'
+            %p.error= show_errors(@van, :transmision)
+
+          .form-group
+            %label Features
+            = f.text_area :features, class: 'form-control', rows: 3, placeholder: 'Solar, Fridge'
+            %p.error= show_errors(@van, :features)
+
+          .form-group
+            %label Instagram URL
+            = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
+            %p.error= show_errors(@van, :instagram_url)
+
+
 
           .form-group
             = f.submit 'Save', class: 'btn btn-primary'
