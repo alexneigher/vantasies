@@ -29,7 +29,7 @@ class VansController < ApplicationController
   def show
     @van = Van.find(params[:id])
 
-    if @van.is_paid? || current_user.id == @van.user_id
+    if @van.is_paid? || @van.user_id == current_user.try(:id) #maybe not logged in
       render :show
     else
       flash[:warning] = "We can't find that van"
