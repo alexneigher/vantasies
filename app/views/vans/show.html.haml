@@ -1,4 +1,4 @@
-= @listing.inspect
+= @van.inspect
 
 .gallery-wrap
   .gallery-images
@@ -6,11 +6,11 @@
   .row.title-wrap
     .col-lg-5
       .van-title
-        = @listing.title
+        = @van.title
       .van-make
-        = @listing.make
-        = @listing.model
-        = @listing.year
+        = @van.make
+        = @van.model
+        = @van.year
     .col-lg-4
       .van-price
         Price
@@ -21,22 +21,22 @@
     .col-lg-12
       .van-description
         %h3 About this van
-        %p= @listing.description
+        %p= @van.description
       .van-info
         %dl
           %dt Transmission
-          %dd = @listing.transmission
+          %dd = @van.transmission
           %dt Mileage
-          %dd = @listing.mileage
+          %dd = @van.mileage
           %dt Fuel Type
-          %dd = @listing.fuel_type
+          %dd = @van.fuel_type
           %dt Drivetrain
-          %dd = @listing.transmission
+          %dd = @van.transmission
       .van-features
         %h3 Features
         %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ipsum quidem, voluptas itaque neque repellendus animi! Sed velit exercitationem rerum alias accusamus ex dolore, obcaecati fugit, vitae, earum animi libero.
   .row
     .col-lg-12
-      = @listing.user_id
+      = @van.user_id
 
 

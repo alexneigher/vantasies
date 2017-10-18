@@ -11,22 +11,22 @@
       .card.text-center
         %h2
           $599
-        %p Are you a dealer or builer? Post unlimited listings.
+        %p Are you a dealer or builer? Post unlimited vans.
   .row.justify-content-lg-center
     .col.col-lg-5
       .form-area
-        = form_for @listing, url: listings_path, method: :post do |f|
+        = form_for @van, url: vans_path, method: :post do |f|
           %br{:style => "clear:both"}/
-          %h3{:style => "margin-bottom: 25px; text-align: center;"} New Listing
+          %h3{:style => "margin-bottom: 25px; text-align: center;"} New van
 
           .form-group
             %label Title
             = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
-            %p.error= show_errors(@listing, :title)
+            %p.error= show_errors(@van, :title)
           .form-group
             %label Location
             = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
-            %p.error= show_errors(@listing, :location)
+            %p.error= show_errors(@van, :location)
 
           .form-group
             %label
@@ -36,22 +36,22 @@
           .form-group
             %label Description
             = f.text_area :description, class: 'form-control', rows: 3
-            %p.error= show_errors(@listing, :description)
+            %p.error= show_errors(@van, :description)
 
 
           .form-group
             %label Make
             = f.text_field :make, class: 'form-control', placeholder: 'Ford'
-            %p.error= show_errors(@listing, :make)
+            %p.error= show_errors(@van, :make)
 
             %label Model
             = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
-            %p.error= show_errors(@listing, :model)
+            %p.error= show_errors(@van, :model)
 
 
             %label Year
             = f.text_field :year, class: 'form-control', placeholder: '2001'
-            %p.error= show_errors(@listing, :year)
+            %p.error= show_errors(@van, :year)
 
 
 
