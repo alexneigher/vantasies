@@ -28,6 +28,14 @@ class VansController < ApplicationController
 
   def show
     @van = Van.find(params[:id])
+
+    if @van.is_paid? || current_user.id == @van.user_id
+      render :show
+    else
+      flash[:warning] = "We can't find that van"
+      redirect_to root_path
+    end
+
   end
 
   private
