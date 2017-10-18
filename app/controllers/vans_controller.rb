@@ -3,7 +3,7 @@ class VansController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   def new
-    @van = van.new
+    @van = Van.new
   end
 
   def create
@@ -20,7 +20,7 @@ class VansController < ApplicationController
   end
 
   def show
-    @van = van.find(params[:id])
+    @van = Van.find(params[:id])
   end
 
   private
