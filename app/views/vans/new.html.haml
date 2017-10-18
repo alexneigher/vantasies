@@ -1,62 +1,111 @@
-.container-fluid
-.row-fluid
-  .new-left
-    .row
-      .col.col-lg-12
-        %h2 Add a new van
-        .form-area
-          = form_for @van, url: vans_path, method: :post do |f|
-            %br{:style => "clear:both"}/
+.container
+  .row
+    .col-lg-12
+      %h1 Vantasies gives you the tools to more effectively sell your van.
+    .col-lg-4
+      .card.text-center
+        %h2
+          $99
+        %p Sell your van
+    .col-lg-4
+      .card.text-center
+        %h2
+          $599
+        %p Are you a dealer or builer? Post unlimited vans.
+  .row.justify-content-lg-center
+    .col.col-lg-5
+      .form-area
+        = form_for @van, url: vans_path, method: :post do |f|
+          %br{:style => "clear:both"}/
+          %h3{:style => "margin-bottom: 25px; text-align: center;"} New van
 
-            .form-group
-              %label Title
-              = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
-              %p.error= show_errors(@van, :title)
-            .form-group
-              %label Location
-              = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
-              %p.error= show_errors(@van, :location)
+          .form-group
+            %label Title
+            = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
+            %p.error= show_errors(@van, :title)
+          .form-group
+            %label Location
+            = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
+            %p.error= show_errors(@van, :location)
 
-            .form-group
-              %label
-                = f.check_box :can_deliver
-                Willing to Deliver?
+          .form-group
+            %label
+              = f.check_box :can_deliver
+              Willing to Deliver?
 
-            .form-group
-              %label Description
-              = f.text_area :description, class: 'form-control', rows: 3
-              %p.error= show_errors(@van, :description)
-
-
-            .form-group
-              %label Make
-              = f.text_field :make, class: 'form-control', placeholder: 'Ford'
-              %p.error= show_errors(@van, :make)
-
-              %label Model
-              = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
-              %p.error= show_errors(@van, :model)
-
-
-              %label Year
-              = f.text_field :year, class: 'form-control', placeholder: '2001'
-              %p.error= show_errors(@van, :year)
+          .form-group
+            %label Description
+            = f.text_area :description, class: 'form-control', rows: 3
+            %p.error= show_errors(@van, :description)
 
 
+          .form-group
+            %label Make
+            = f.text_field :make, class: 'form-control', placeholder: 'Ford'
+            %p.error= show_errors(@van, :make)
 
-            .form-group
-              = f.submit 'Save', class: 'btn btn-primary'
-  .new-right
-    %h1 Vantasies gives you the tools to more effectively sell your van.
-    .row
-      .col-lg-12
-        .card.text-center
-          %h2
-            $99/post
-          %p Sell your van
-      .col-lg-12
-        .card.text-center
-          %h2
-            $599
-            %span /yr
-          %p Are you a dealer or builer? Post unlimited vans.
+            %label Model
+            = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
+            %p.error= show_errors(@van, :model)
+
+
+            %label Year
+            = f.text_field :year, class: 'form-control', placeholder: '2001'
+            %p.error= show_errors(@van, :year)
+
+
+          .form-group
+            %label Condition
+            = f.text_field :condition, class: 'form-control', placeholder: 'Meh+'
+            %p.error= show_errors(@van, :condition)
+
+          .form-group
+            %label Mileage
+            = f.text_field :mileage, class: 'form-control', placeholder: '120,000'
+            %p.error= show_errors(@van, :mileage)
+
+          .form-group
+            %label Price
+            = f.text_field :price, class: 'form-control', placeholder: '5000'
+            %p.error= show_errors(@van, :price)
+
+          .form-group
+            %label transmision
+            = f.text_field :transmission, class: 'form-control', placeholder: 'Automatic'
+            %p.error= show_errors(@van, :transmision)
+
+          .form-group
+            %label VIN
+            = f.text_field :vin, class: 'form-control', placeholder: '12erRF567'
+            %p.error= show_errors(@van, :vin)
+
+          .form-group
+            %label Fuel Type
+            = f.text_field :fuel_type, class: 'form-control', placeholder: 'Diesel'
+            %p.error= show_errors(@van, :fuel_type)
+
+          .form-group
+            %label Drive Train
+            = f.text_field :drivetrain, class: 'form-control', placeholder: '4WD'
+            %p.error= show_errors(@van, :drivetrain)
+
+          .form-group
+            %label transmision
+            = f.text_field :transmission, class: 'form-control', placeholder: 'Automatic'
+            %p.error= show_errors(@van, :transmision)
+
+          .form-group
+            %label Features
+            = f.text_area :features, class: 'form-control', rows: 3, placeholder: 'Solar, Fridge'
+            %p.error= show_errors(@van, :features)
+
+          .form-group
+            %label Instagram URL
+            = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
+            %p.error= show_errors(@van, :instagram_url)
+
+
+
+          .form-group
+            = f.submit 'Save', class: 'btn btn-primary'
+>>>>>>> 5fac3798f8651f37a1777717e0677bda1740122c
