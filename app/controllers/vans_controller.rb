@@ -17,6 +17,7 @@ class VansController < ApplicationController
   end
 
   def index
+    @vans = Van.all
   end
 
   def show
