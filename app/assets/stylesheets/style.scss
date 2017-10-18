@@ -1,0 +1,40 @@
+body{
+  font-family: 'Muli';
+  font-weight: 300;
+  h1,h2,h3{
+    font-weight: 600;
+  }
+}
+.homepage-header{
+  background: url('https://images.unsplash.com/uploads/1413399939678471ea070/2c0343f7?dpr=1&auto=format&fit=crop&w=2100&h=&q=60&cs=tinysrgb&crop=') center center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  &:after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    content: '';
+    background: rgba(0,0,0,0.3);
+  }
+  .homepage-header--content{
+    text-align:center;
+    padding-top: 20vh;
+    position: relative;
+    h1{
+      font-size: 90px;
+      color:#fff;
+      z-index: 99;
+      position: relative;
+    }
+    p{
+      font-size: 24px;
+      color: #fff;
+      z-index: 99;
+      position: relative;
+    }
+  }
+}
