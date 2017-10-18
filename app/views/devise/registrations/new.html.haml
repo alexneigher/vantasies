@@ -21,8 +21,5 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation, autocomplete: "off"
 
-  .field
-    = f.label :type
-    = f.select :business_type, User.business_types.keys
   .actions
     = f.submit "Sign up"
