@@ -23,7 +23,7 @@ class VansController < ApplicationController
   end
 
   def index
-    @vans = Van.all
+    @vans = Van.includes(:photos).all
   end
 
   def show
