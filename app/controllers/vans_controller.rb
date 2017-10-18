@@ -10,6 +10,12 @@ class VansController < ApplicationController
     @van = current_user.vans.new(van_params)
 
     if @van.save
+      if params[:photos]
+        params[:photos].each { |image|
+          @van.photos.create(image: image)
+        }
+
+      end
       redirect_to van_path(@van)
     else
       render :new
@@ -26,7 +32,12 @@ class VansController < ApplicationController
 
   private
     def van_params
-      params.require(:van).permit(:title, :location, :description, :make, :model, :year, :price, :can_deliver)
+      params
+        .require(:van)
+          .permit(
+                  :condition, :mileage, :transmission, :vin, :fuel_type, :drivetrain, :features, :instagram_url,
+                  :title, :location, :description, :make, :model, :year, :price, :can_deliver
+                  )
     end
 
 end

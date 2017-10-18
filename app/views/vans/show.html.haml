@@ -1,7 +1,7 @@
-= @van.inspect
-
 .gallery-wrap
   .gallery-images
+    - @van.photos.each do |p|
+      = image_tag p.image.url(:medium)
 .container
   .row.title-wrap
     .col-lg-5
