@@ -1,0 +1,45 @@
+.row
+  .col-md-5
+    .form-area
+      = form_for @listing, url: listings_path, method: :post do |f|
+        %br{:style => "clear:both"}/
+        %h3{:style => "margin-bottom: 25px; text-align: center;"} New Listing
+
+        .form-group
+          %label Title
+          = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
+          %p.error= show_errors(@listing, :title)
+        .form-group
+          %label Location
+          = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
+          %p.error= show_errors(@listing, :location)
+
+        .form-group
+          %label
+            = f.check_box :can_deliver
+            Willing to Deliver?
+
+        .form-group
+          %label Description
+          = f.text_area :description, class: 'form-control', rows: 3
+          %p.error= show_errors(@listing, :description)
+
+
+        .form-group
+          %label Make
+          = f.text_field :make, class: 'form-control', placeholder: 'Ford'
+          %p.error= show_errors(@listing, :make)
+
+          %label Model
+          = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
+          %p.error= show_errors(@listing, :model)
+
+
+          %label Year
+          = f.text_field :year, class: 'form-control', placeholder: '2001'
+          %p.error= show_errors(@listing, :year)
+
+
+
+        .form-group
+          = f.submit 'Save', class: 'btn btn-primary'
