@@ -1,16 +1,22 @@
-.homepage-header
-  .homepage-header--content
-    .container
-      .row.justify-content-md-center
-        .col.col-lg-8
-        %h1 Find and sell adventure vans.
-        %p We're here to help fulfill your wildest vantasies
-        %a.btn.btn-primary Find Vans
-        %a.btn.btn-default Sell a Van
-.row-fluid
+.container
+  .row
+    .homepage-header
+      .homepage-header--content
+        .container
+          .row.justify-content-md-center
+            .col.col-lg-8
+            %h1 Find and sell adventure vans.
+            %p We're here to help fulfill your wildest vantasies
+            %a.btn.btn-primary Find Vans
+            %a.btn.btn-default Sell a Van
 
-  - @vans.each do |van|
-    .col-lg-4
-      = render partial: "components/van-card", locals: {van: van}
+.container
+  .row.text-center.pad4y
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem tenetur repellat soluta pariatur iure mollitia voluptas fuga quo accusamus ipsum consectetur modi dolorum ipsa suscipit, exercitationem, at excepturi impedit.
+.container
+  .row-fluid
+    - @vans.each do |van|
+      .col-lg-4
+        = render partial: "components/van-card", locals: {van: van}
 
 
