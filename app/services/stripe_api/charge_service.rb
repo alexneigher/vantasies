@@ -4,7 +4,7 @@ module StripeApi
     class ChargeFailedError < StandardError; end
 
     attr_accessor :van, :user
-    
+
     def initialize(params)
       @user = User.find(params[:user_id])
       @van = Van.find(params[:van_id])
@@ -19,6 +19,7 @@ module StripeApi
                   :amount => CHARGE_AMOUNT,
                   :currency => "usd",
                   :description => "Vantasies Charge",
+                  :metadata => {"user_id" => @user.id, "van_id" => @van.id, "user_email" => @user.email},
                   :source => @token,
                 )
         raise ChargeFailedError unless charge.paid?
@@ -28,7 +29,6 @@ module StripeApi
         return false
       end
     end
-
 
     private
       def persist_charge(charge)
