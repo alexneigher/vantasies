@@ -15,7 +15,9 @@
   .row.justify-content-lg-center
     .col.col-lg-5
       .form-area
-        = form_for @van, url: vans_path, method: :post do |f|
+        = form_for @van, url: vans_path, method: :post, html: {multipart: true} do |f|
+          .form-group
+            = file_field_tag "photos[]", type: :file, multiple: true
           %br{:style => "clear:both"}/
           %h3{:style => "margin-bottom: 25px; text-align: center;"} New van
 
@@ -38,7 +40,6 @@
             = f.text_area :description, class: 'form-control', rows: 3
             %p.error= show_errors(@van, :description)
 
-
           .form-group
             %label Make
             = f.text_field :make, class: 'form-control', placeholder: 'Ford'
@@ -52,7 +53,6 @@
             %label Year
             = f.text_field :year, class: 'form-control', placeholder: '2001'
             %p.error= show_errors(@van, :year)
-
 
           .form-group
             %label Condition
@@ -108,4 +108,3 @@
 
           .form-group
             = f.submit 'Save', class: 'btn btn-primary'
->>>>>>> 5fac3798f8651f37a1777717e0677bda1740122c
