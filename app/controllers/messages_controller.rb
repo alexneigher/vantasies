@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
       render :error and return
     end
 
-    #TODO actually send the email
+    MessageMailer.message_email(@message.id).deliver_now
   end
 
   private
