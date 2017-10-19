@@ -5,8 +5,9 @@ class MessageMailer < ApplicationMailer
     @van = @message.van
 
     @van_owner = @van.user
-    binding.pry
-    mail(to: @van_owner.email, reply_to: @message.reply_to_email,  subject: 'Someone wants to buy your van!')
+
+    mail(to: @van_owner.email, from: @message.name, reply_to: @message.reply_to_email,  subject: 'Someone wants to buy your van!')
   end
+  
   #Send by doing: > MessageMailer.message_email(Message.first.id).deliver
 end
