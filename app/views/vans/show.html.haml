@@ -1,47 +1,47 @@
 = render partial: 'vans/not_paid_warning'
-
-.gallery-wrap
-  .gallery-images
-    - @van.photos.each do |p|
-      = image_tag p.image.url(:original)
-.container
-  .row
-    .col-lg-10.col-lg-offset-1
-      .row.title-wrap
-        .col-lg-7
-          %h1.van-title
-            = @van.title
-          .van-make
-            = @van.make
-            = @van.model
-            = @van.year
-        .col-lg-2
-          .van-price.btn.btn-default
-            Price:
-            = @van.price
-        .col-lg-3
-          .van-contact
-            .btn.btn-primary.btn-block Contact
-      .row
-        .col-lg-12
-          .van-description
-            %h3 About this van
-            %p= @van.description
-          .van-info
-            %dl
-              %dt Transmission
-              %dd= @van.transmission
-              %dt Mileage
-              %dd= @van.mileage
-              %dt Fuel Type
-              %dd= @van.fuel_type
-              %dt Drivetrain
-              %dd= @van.transmission
-          .van-features
-            %h3 Features
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ipsum quidem, voluptas itaque neque repellendus animi! Sed velit exercitationem rerum alias accusamus ex dolore, obcaecati fugit, vitae, earum animi libero.
-      .row
-        .col-lg-12
-          = @van.user_id
+.van-detail
+  .gallery-wrap
+    .gallery-images
+      - @van.photos.each do |p|
+        = image_tag p.image.url(:original)
+  .container
+    .row
+      .col-lg-10.col-lg-offset-1
+        .row.title-wrap
+          .col-lg-7
+            %h1.van-title
+              = @van.title
+            .van-make
+              = @van.make
+              = @van.model
+              = @van.year
+          .col-lg-2
+            .van-price.btn.btn-default
+              Price:
+              = @van.price
+          .col-lg-3
+            .van-contact
+              .btn.btn-primary.btn-block Contact
+        .row
+          .col-lg-12
+            .van-description
+              %h3 About this van
+              %p= @van.description
+            .van-info
+              %dl
+                %dt Transmission
+                %dd= @van.transmission
+                %dt Mileage
+                %dd= @van.mileage
+                %dt Fuel Type
+                %dd= @van.fuel_type
+                %dt Drivetrain
+                %dd= @van.transmission
+            .van-features
+              %h3 Features
+              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ipsum quidem, voluptas itaque neque repellendus animi! Sed velit exercitationem rerum alias accusamus ex dolore, obcaecati fugit, vitae, earum animi libero.
+        .row
+          .col-lg-12
+            = @van.user_id
 
 

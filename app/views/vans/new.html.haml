@@ -4,7 +4,7 @@
     .col-lg-8.col-lg-offset-2
       .row
         .col-lg-12
-          %h1 Vantasies gives you the tools to more effectively sell your van.
+          %h1 The tools to more effectively sell your van.
         .col-lg-6
           .card.text-center
             %h2
@@ -14,7 +14,7 @@
           .card.text-center
             %h2
               $599
-            %p Are you a dealer or builer? Post unlimited vans.
+            %p Are you a dealer or builer? Get in touch.
       .form-area
         = form_for @van, url: vans_path, method: :post, html: {multipart: true} do |f|
           %br{:style => "clear:both"}/
@@ -35,7 +35,7 @@
 
             .form-group
               %label Description
-              = f.text_area :description, class: 'form-control', rows: 3
+              = f.text_area :description, class: 'form-control', rows: 8
               %p.error= show_errors(@van, :description)
             .row
               .col-lg-4
@@ -97,7 +97,7 @@
 
             .form-group
               %label Features
-              = f.text_area :features, class: 'form-control', rows: 3, placeholder: 'Solar, Fridge'
+              = f.text_area :features, class: 'form-control', rows: 8, placeholder: 'Solar, Fridge'
               %p.error= show_errors(@van, :features)
           .panel.pad3
             .form-group
