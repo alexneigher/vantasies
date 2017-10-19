@@ -88,6 +88,31 @@
 
   }
 }
+.van-info{
+  column-count: 2;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  padding: 50px 0;
+  .info-row{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    margin-bottom: 15px;
+  }
+  .van-info--title{
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 40%;
+    width: 40%;
+    display:inline-block;
+  }
+  .van-info--detail{
+    font-size: 18px;
+    padding-right: 50px;
+    float:right;
+    opacity:0.8;
+  }
+}
 
 .not-paid-warning{
   text-align: center;

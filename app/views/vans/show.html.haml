@@ -1,47 +1,83 @@
 = render partial: 'vans/not_paid_warning'
-.van-detail
-  .gallery-wrap
-    .gallery-images
-      - @van.photos.each do |p|
-        = image_tag p.image.url(:original)
-  .container
-    .row
-      .col-lg-10.col-lg-offset-1
-        .row.title-wrap
-          .col-lg-7
-            %h1.van-title
-              = @van.title
-            .van-make
-              = @van.make
-              = @van.model
-              = @van.year
-          .col-lg-2
-            .van-price.btn.btn-default
-              Price:
-              = @van.price
-          .col-lg-3
-            .van-contact
-              .btn.btn-primary.btn-block Contact
-        .row
-          .col-lg-12
-            .van-description
-              %h3 About this van
-              %p= @van.description
-            .van-info
-              %dl
-                %dt Transmission
-                %dd= @van.transmission
-                %dt Mileage
-                %dd= @van.mileage
-                %dt Fuel Type
-                %dd= @van.fuel_type
-                %dt Drivetrain
-                %dd= @van.transmission
-            .van-features
-              %h3 Features
-              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ipsum quidem, voluptas itaque neque repellendus animi! Sed velit exercitationem rerum alias accusamus ex dolore, obcaecati fugit, vitae, earum animi libero.
-        .row
-          .col-lg-12
-            = @van.user_id
+
+.gallery-wrap
+  .gallery-images
+    - @van.photos.each do |p|
+      = image_tag p.image.url(:original)
+.container
+  .row
+    .col-lg-10.col-lg-offset-1
+      .row.title-wrap
+        .col-lg-7
+          %h1.van-title
+            = @van.title
+          .van-make
+            = @van.make
+            = @van.model
+            = @van.year
+        .col-lg-2
+          .van-price.btn.btn-default
+            Price:
+            = @van.price
+        .col-lg-3
+          .van-contact
+            %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
+              Contact
+      .row
+        .col-lg-12
+          .van-description
+            %h3 About this van
+            %p= @van.description
+          .van-info
+            .info-row
+              .van-info--title Location
+              .van-info--detail= @van.location
+            .info-row
+              .van-info--title Condition
+              .van-info--detail= @van.condition
+            .info-row
+              .van-info--title Transmission
+              .van-info--detail= @van.transmission
+            .info-row
+              .van-info--title Mileage
+              .van-info--detail= @van.mileage
+            .info-row
+              .van-info--title Fuel Type
+              .van-info--detail= @van.fuel_type
+            .info-row
+              .van-info--title Drivetrain
+              .van-info--detail= @van.drivetrain
+            .info-row
+              .van-info--title VIN
+              .van-info--detail= @van.vin
+          .van-features
+            %h3 Features
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ipsum quidem, voluptas itaque neque repellendus animi! Sed velit exercitationem rerum alias accusamus ex dolore, obcaecati fugit, vitae, earum animi libero.
+      .row
+        .col-lg-12
+          = @van.user_id
 
 
+#contactModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "contactModal", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h3#paymentModalLabel.modal-title This van could be yours!
+      %form
+        .modal-body
+          .form-group
+            %label Your Email
+            = text_field_tag "email", current_user.try(:email), class: 'form-control'
+          .form-group
+            %label Subject
+            = text_field_tag "subject", nil, class: 'form-control'
+
+          .form-group
+            %label Body
+            = text_area_tag 'body', nil, rows: 3, class: 'form-control'
+
+        .modal-footer
+          %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary.btn-sm{"data-dismiss" => "modal", :type => "button"} Send
