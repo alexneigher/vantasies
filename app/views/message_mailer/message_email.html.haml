@@ -1,0 +1,12 @@
+Dear, #{@van_owner.name},
+
+It looks like #{@message.name} <#{@message.reply_to_emai}> is interested in your van.
+
+Here's their message:
+
+.well
+  = @message.body
+
+%hr
+Good Luck Selling!
+- Your friends at Vantasies
