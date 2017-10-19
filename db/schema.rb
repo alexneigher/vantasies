@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019020502) do
+ActiveRecord::Schema.define(version: 20171019171523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20171019020502) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_charges_on_user_id"
     t.index ["van_id"], name: "index_charges_on_van_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "van_id"
+    t.string "reply_to_email"
+    t.string "name"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["van_id"], name: "index_messages_on_van_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -83,5 +93,6 @@ ActiveRecord::Schema.define(version: 20171019020502) do
 
   add_foreign_key "charges", "users"
   add_foreign_key "charges", "vans"
+  add_foreign_key "messages", "vans"
   add_foreign_key "photos", "vans"
 end
