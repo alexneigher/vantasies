@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :vans
 
   resources :charges
+
+  get :about, to: "static_pages#about"
 end

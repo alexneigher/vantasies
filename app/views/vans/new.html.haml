@@ -76,17 +76,17 @@
               .col-lg-4
                 .form-group
                   %label Transmision
-                  = f.select :transmission, options_for_select(["Automatic","Manual"]), {}, class: "form-control"
+                  = f.select :transmission, Van.transmissions.keys.map {|f| [ f.titleize, f ] }, {}, class: "form-control"
                   %p.error= show_errors(@van, :transmision)
               .col-lg-4
                 .form-group
                   %label Fuel Type
-                  = f.select :fuel_type, options_for_select(["Hybrid","Diesel","Electric"]), {}, class: "form-control"
+                  = f.select :fuel_type, Van.fuel_types.keys.map {|f| [ f.titleize, f ] }, {}, class: "form-control"
                   %p.error= show_errors(@van, :fuel_type)
               .col-lg-4
                 .form-group
                   %label Drive Train
-                  = f.select :fuel_type, options_for_select(["Front Wheel Drive","Rear Wheel Drive","4WD", "AWD"]), {}, class: "form-control"
+                  = f.select :drivetrain, Van.drivetrains.keys.map {|f| [ f.titleize, f ] },{}, class: "form-control"
                   %p.error= show_errors(@van, :drivetrain)
             .row
               .col-lg-3
