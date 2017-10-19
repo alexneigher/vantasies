@@ -21,7 +21,8 @@
             = @van.price
         .col-lg-3
           .van-contact
-            .btn.btn-primary.btn-block Contact
+            %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'} 
+              Contact
       .row
         .col-lg-12
           .van-description
@@ -45,3 +46,27 @@
           = @van.user_id
 
 
+
+#contactModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "contactModal", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h3#paymentModalLabel.modal-title This van could be yours!
+      %form
+        .modal-body
+          .form-group
+            %label Your Email
+            = text_field_tag "email", current_user.try(:email), class: 'form-control'
+          .form-group
+            %label Subject
+            = text_field_tag "subject", nil, class: 'form-control'
+
+          .form-group
+            %label Body
+            = text_area_tag 'body', nil, rows: 3, class: 'form-control'
+
+        .modal-footer
+          %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary.btn-sm{"data-dismiss" => "modal", :type => "button"} Send
