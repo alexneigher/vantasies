@@ -1,7 +1,8 @@
 = link_to van_path(van) do
   .van-card
-    .van-image{style: 'background: url('"#{van.card_photo}"') center center no-repeat;'}
+    .van-image{style: 'background: url('"#{van.card_photo}"') center center no-repeat;background-size:cover;'}
       .van-price
+        $
         = van.price
     .van-card-content
       .van-title
