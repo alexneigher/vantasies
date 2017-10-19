@@ -53,20 +53,25 @@
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
-        %h3#paymentModalLabel.modal-title This van could be yours!
-      %form
+        %h3#paymentModalLabel.modal-title Get In Touch
+      = form_tag messages_path, method: :post, id: 'messageForm', remote: true do
         .modal-body
-          .form-group
-            %label Your Email
-            = text_field_tag "email", current_user.try(:email), class: 'form-control'
-          .form-group
-            %label Subject
-            = text_field_tag "subject", nil, class: 'form-control'
+          .form-content
+            .errors
+            .form-group
+              = hidden_field_tag 'message[van_id]', @van.id
 
-          .form-group
-            %label Body
-            = text_area_tag 'body', nil, rows: 3, class: 'form-control'
+              %label Your Name
+              = text_field_tag "message[name]", current_user.try(:name), class: 'form-control'
+
+            .form-group
+              %label Your Email
+              = text_field_tag "message[reply_to_email]", current_user.try(:email), class: 'form-control'
+
+            .form-group
+              %label Body
+              = text_area_tag 'message[body]', nil, rows: 3, class: 'form-control'
 
         .modal-footer
           %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
-          %button.btn.btn-primary.btn-sm{"data-dismiss" => "modal", :type => "button"} Send
+          = submit_tag "Send", class: 'btn btn-primary btn-sm send-email-btn'

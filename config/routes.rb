@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   resources :charges
 
+  resources :messages
+
   get :about, to: "static_pages#about"
 end
