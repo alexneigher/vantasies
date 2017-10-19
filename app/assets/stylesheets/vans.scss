@@ -43,29 +43,10 @@
 }
 
 .gallery-wrap{
-  white-space: no-wrap;
-  width: 100vw;
-  height: calc(85vh - 51px);
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  &::-webkit-scrollbar {
-      height: 0px;  /* remove scrollbar space */
-      background: transparent;  /* optional: just make scrollbar invisible */
-  }
-  .gallery-images{
-    white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    height: 100%;
-    img{
-      height: 100%;
-      float: left;
-      display: inline;
-    }
-  }
+  position: relative;
+  overflow: hidden;
 }
+
 .van-title{
   font-size: 50px;
 }

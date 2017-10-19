@@ -1,9 +1,10 @@
 = render partial: 'vans/not_paid_warning'
 
-.gallery-wrap
-  .gallery-images
+.container-slick
+  .slick-slider
     - @van.photos.each do |p|
-      = image_tag p.image.url(:original)
+      %div
+        = image_tag p.image.url(:original)
 .container
   .row
     .col-lg-10.col-lg-offset-1
@@ -86,3 +87,18 @@
         .modal-footer
           %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
           = submit_tag "Send", class: 'btn btn-primary btn-sm send-email-btn'
+
+
+:javascript
+  $(document).ready(function(){
+    $('.slick-slider').slick({
+       dots: true,
+       adaptiveHeight: false,
+       variableWidth: true,
+       centerMode: true,
+       arrows: true,
+       centerPadding: 10,
+       autoplay: true,
+       autoplaySpeed: 4000
+     });
+  });
