@@ -97,7 +97,8 @@
 
             .form-group
               %label Features
-              = f.text_area :features, class: 'form-control', rows: 8, placeholder: 'Solar, Fridge'
+              = f.text_field :features, data: {role: 'tagsinput'}, placeholder: 'Solar, Fridge'
+
               %p.error= show_errors(@van, :features)
           .panel.pad3
             .form-group

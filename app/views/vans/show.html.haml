@@ -53,10 +53,10 @@
               .van-info--detail= @van.vin
           .van-features
             %h3 Features
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ipsum quidem, voluptas itaque neque repellendus animi! Sed velit exercitationem rerum alias accusamus ex dolore, obcaecati fugit, vitae, earum animi libero.
+            = van_feature_tags(@van.features)
       .row
         .col-lg-12
-          = @van.user_id
+          = @van.user.inspect
 
 
 #contactModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "contactModal", :role => "dialog", :tabindex => "-1"}
