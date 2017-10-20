@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
 
   def new
     @company = Company.new
@@ -14,6 +14,11 @@ class CompaniesController < ApplicationController
     else
       raise 'nop'
     end
+  end
+
+  def edit
+    @company = current_user.company
+    
   end
 
   def index

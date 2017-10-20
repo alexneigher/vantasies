@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :companies do
     resources :vans, controller: 'companies/vans'
+    resources :photos, controller: 'companies/photos'
+    put :reorder_photos, to: 'companies/photos#reorder_photos'
   end
 
   get :about, to: "static_pages#about"
