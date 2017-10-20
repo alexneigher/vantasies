@@ -14,6 +14,9 @@ body{
 .nav-sell{
   background: #ffeb3b;
   margin: 0 10px;
+  &:hover{
+    background-color: #ecda34 !important;
+  }
 }
 footer{
   display: inline-block;

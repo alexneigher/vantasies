@@ -12,7 +12,7 @@
         .col-lg-7
           %h1.van-title
             = @van.title
-            = link_to "edit van", edit_user_van_path(@van) if current_user == @van.user
+            = link_to("edit van", edit_user_van_path(@van), class: "btn btn-default btn-sm")  if current_user == @van.user
           .van-make
             = @van.make
             = @van.model
@@ -64,9 +64,12 @@
           .row
             .col-lg-4
               .panel.pad3
-                = @van.user.email
-                = @van.user.name
-                = @van.user.inspect
+                %h3
+                  = @van.user.name
+                %p
+                  = @van.user.bio
+                %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
+                  Contact
 
 
 = render partial: 'vans/contact_modal'
