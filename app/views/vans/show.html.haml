@@ -18,7 +18,7 @@
             = @van.model
             = @van.year
         .col-lg-2
-          .van-price.btn.btn-default
+          .van-price
             Price:
             = @van.price
         .col-lg-3
@@ -49,12 +49,14 @@
             .info-row
               .van-info--title Drivetrain
               .van-info--detail= @van.drivetrain.titleize
-            .info-row
-              .van-info--title VIN
-              .van-info--detail= @van.vin
-          .van-features.pad8b
-            %h3 Features
-            = van_feature_tags(@van.features)
+            - if @van.vin?
+              .info-row
+                .van-info--title VIN
+                .van-info--detail= @van.vin
+          - if @van.features?
+            .van-features.pad8b
+              %h3 Features
+              = van_feature_tags(@van.features)
 .row-fluid
   .map-wrap
     .container

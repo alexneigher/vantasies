@@ -1,47 +1,4 @@
-.van-card{
-  display: inline-block;
-  width: 100%;
-  float: left;
-  transition: all .2s ease-in-out;
-  margin-bottom: 32px;
-  &:hover{
-    transform: scale(1.02);
-    cursor: pointer;
-    -webkit-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.2);
-    box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.21);
 
-  }
-  .van-image{
-    height: 300px;
-    background: #efefef;
-    width:100%;
-    background-size: cover;
-    position:relative;
-  }
-  .van-card-content{
-    padding: 20px;
-    background: #f7f7f7;
-  }
-  .van-title{
-    font-size: 24px;
-    color: #131313;
-  }
-  .van-make{
-    font-size: 15px;
-    color: #999;
-  }
-  .van-price{
-    float: right;
-    padding: 10px;
-    background: #ffeb3b;
-    color: #131313;
-    position: absolute;
-    font-weight: 600;
-    bottom: 0px;
-    right: 0px;
-  }
-}
 
 .gallery-wrap{
   position: relative;
@@ -53,6 +10,10 @@
 }
 .van-price{
   float: right;
+  background: #efefef;
+  padding: 20px 30px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 

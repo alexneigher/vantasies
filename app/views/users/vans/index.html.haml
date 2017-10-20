@@ -1,6 +1,7 @@
-.row-fluid
-  - @vans.each do |van|
-    .col-lg-4
-      = render partial: "components/van-card", locals: {van: van}
+.container
+  .row
+    - @vans.each do |van|
+      .col-lg-12
+        = render partial: "components/van-card-wide", locals: {van: van}
 
 

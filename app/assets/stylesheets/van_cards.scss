@@ -1,0 +1,100 @@
+.van-card{
+  display: inline-block;
+  width: 100%;
+  float: left;
+  transition: all .2s ease-in-out;
+  margin-bottom: 32px;
+  &:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.21);
+
+  }
+  .van-image{
+    height: 300px;
+    background: #efefef;
+    width:100%;
+    background-size: cover;
+    position:relative;
+  }
+  .van-card-content{
+    padding: 20px;
+    background: #f7f7f7;
+  }
+  .van-title{
+    font-size: 24px;
+    color: #131313;
+  }
+  .van-make{
+    font-size: 15px;
+    color: #999;
+  }
+  .van-price{
+    float: right;
+    padding: 10px;
+    background: #ffeb3b;
+    color: #131313;
+    position: absolute;
+    font-weight: 600;
+    bottom: 0px;
+    right: 0px;
+  }
+}
+
+
+.van-card-wide{
+  display: inline-block;
+  width: 100%;
+  float: left;
+  transition: all .2s ease-in-out;
+  margin-bottom: 32px;
+  background: #f7f7f7;
+  .van-image{
+    height: 150px;
+    background: #efefef;
+    width:20%;
+    background-size: cover;
+    position:relative;
+    float:left;
+    margin-right: 15px;
+    @media (max-width: 480px){
+      width: 100%;
+    }
+  }
+  .van-card-content{
+    padding: 15px;
+    width: 60%;
+  }
+  .van-title{
+    font-size: 30px;
+    color: #131313;
+    font-weight: 600;
+    @media (max-width: 480px){
+      font-size: 18px;
+      margin-top: 10px;
+      display: inline-block;
+    }
+  }
+  .van-make{
+    font-size: 20px;
+    color: #999;
+    @media (max-width: 480px){
+      font-size: 15px;
+    }
+  }
+  .van-price{
+    float: right;
+    padding: 10px;
+    background: #ffeb3b;
+    color: #131313;
+    position: absolute;
+    font-weight: 600;
+    bottom: 0px;
+    right: 0px;
+  }
+  .actions{
+    width: 5%;
+  }
+}
