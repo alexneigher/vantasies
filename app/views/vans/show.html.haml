@@ -38,16 +38,16 @@
               .van-info--detail= @van.condition
             .info-row
               .van-info--title Transmission
-              .van-info--detail= @van.transmission
+              .van-info--detail= @van.transmission.titleize
             .info-row
               .van-info--title Mileage
               .van-info--detail= @van.mileage
             .info-row
               .van-info--title Fuel Type
-              .van-info--detail= @van.fuel_type
+              .van-info--detail= @van.fuel_type.titleize
             .info-row
               .van-info--title Drivetrain
-              .van-info--detail= @van.drivetrain
+              .van-info--detail= @van.drivetrain.titleize
             .info-row
               .van-info--title VIN
               .van-info--detail= @van.vin
