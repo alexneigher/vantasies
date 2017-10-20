@@ -20,4 +20,8 @@ class Van < ApplicationRecord
     return "https://source.unsplash.com/random" unless photos.any?
     photos.ordered.first.image.url(:medium)
   end
+
+  def needs_to_pay?
+    is_for_sale? && !is_paid?
+  end
 end

@@ -5,12 +5,17 @@
       .row
         .col-lg-12
           %h1 The tools to more effectively sell your van.
-        .col-lg-6
+        .col-lg-4
+          .card.text-center
+            %h2
+              FREE
+            %p Show it off
+        .col-lg-4
           .card.text-center
             %h2
               $99
             %p Sell your van
-        .col-lg-6
+        .col-lg-4
           .card.text-center
             %h2
               $599
@@ -20,6 +25,14 @@
           %br{:style => "clear:both"}/
           %h3{:style => "margin-bottom: 25px;"} New van
           .panel.pad3
+            .form-group
+              .well
+                %label
+                  = f.check_box :is_for_sale, checked: false
+                  Is this van for sale?
+                .small
+                  (We wont charge you until the next step)
+
             .form-group
               %label Title
               = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'

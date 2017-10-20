@@ -17,14 +17,15 @@
             = @van.make
             = @van.model
             = @van.year
-        .col-lg-2
-          .van-price
-            Price:
-            = @van.price
-        .col-lg-3
-          .van-contact
-            %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
-              Contact
+        - if @van.is_for_sale?
+          .col-lg-2
+            .van-price.btn.btn-default
+              Price:
+              = @van.price
+          .col-lg-3
+            .van-contact
+              %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
+                Contact
       .row
         .col-lg-12
           .van-description
@@ -70,8 +71,10 @@
                   = @van.user.name
                 %p
                   = @van.user.bio
-                %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
-                  Contact
+
+                - if @van.is_for_sale?
+                  %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
+                    Contact
 
 
 = render partial: 'vans/contact_modal'

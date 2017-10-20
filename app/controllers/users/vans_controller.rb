@@ -37,7 +37,7 @@ module Users
             .require(:van)
             .permit(
                     :condition, :mileage, :transmission, :vin, :fuel_type, :drivetrain, :features, :instagram_url,
-                    :title, :location, :description, :make, :model, :year, :price, :can_deliver
+                    :title, :location, :description, :make, :model, :year, :price, :can_deliver, :is_for_sale
                     )
         end
   end
