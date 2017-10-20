@@ -1,6 +1,6 @@
 module Users
   class VansController < ApplicationController
-    before_action :authenticate_van_owner, only: [:edit, :update]
+    before_action :authenticate_van_owner, only: [:edit, :update, :destroy]
 
     def index
       @user = User.find(params[:user_id])
@@ -17,6 +17,11 @@ module Users
         flash[:error] = 'Whoops'
         redirect_to edit_user_van_path(current_user, @van)
       end
+    end
+
+    def destroy
+      @van.destroy
+      redirect_to root_path
     end
 
 

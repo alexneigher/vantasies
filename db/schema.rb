@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020191639) do
+ActiveRecord::Schema.define(version: 20171020192851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20171020191639) do
     t.integer "fuel_type"
     t.integer "drivetrain"
     t.boolean "is_for_sale", default: true
+    t.datetime "deleted_at"
     t.index ["user_id"], name: "index_vans_on_user_id"
   end
 

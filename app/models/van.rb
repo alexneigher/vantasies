@@ -1,7 +1,10 @@
 class Van < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :user
-  has_many :photos, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  has_many :photos
+  has_many :messages
+  has_many :charges
   
   scope :paid, -> { where(is_paid: true) }
   

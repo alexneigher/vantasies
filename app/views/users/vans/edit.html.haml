@@ -100,4 +100,5 @@
 
           .form-group
             = f.submit 'Save', class: 'btn btn-primary'
+            = link_to "delete this van", user_van_path(current_user, @van), method: :delete
 

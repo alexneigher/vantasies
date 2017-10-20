@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :messages
 
   resources :user do
-    resources :vans, only: [:index, :edit, :update], controller: 'users/vans'
+    resources :vans, only: [:index, :edit, :update, :destroy], controller: 'users/vans'
   end
 
   get :about, to: "static_pages#about"
