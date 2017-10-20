@@ -2,7 +2,7 @@
 
 .container-slick
   .slick-slider
-    - @van.photos.each do |p|
+    - @van.photos.ordered.each do |p|
       %div
         = image_tag p.image.url(:large)
 .container
