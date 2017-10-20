@@ -5,7 +5,11 @@
       .row
         .col-lg-12
           %h1 Posting a van by #{@company.name}
-
+          .col-lg-6.col-lg-offset-3
+            .card.text-center
+              %h2
+                Want discounted Vans?
+              %p Contact us for bulk deals! (Special for companies)
       .form-area
         = form_for @van, url: company_vans_path(@company), method: :post, html: {multipart: true} do |f|
           
