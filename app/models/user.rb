@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   has_many :vans
 
+  has_one :company
+
+
+  def has_company?
+    company.present?
+  end
 end
