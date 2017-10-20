@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "welcome#show"
 
@@ -14,6 +13,10 @@ Rails.application.routes.draw do
   resources :charges
 
   resources :messages
+
+  resources :user do
+    resources :vans, only: [:index, :edit, :update], controller: 'users/vans'
+  end
 
   get :about, to: "static_pages#about"
 end

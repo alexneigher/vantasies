@@ -1,12 +1,12 @@
 class Photo < ApplicationRecord
   belongs_to :van
 
-  # This method associates the attribute ":image" with a file attachment
-    has_attached_file :image, styles: {
-      medium: '500x300>'
-    }
+  has_attached_file :image, styles: {
+    medium: '500x300>', #used on cards
+    large:  '700x700>', #used in carousel
+    full_size: '2000x2000' #used to render full photo in modal
+  }
 
-    # Validate the attached image is image/jpg, image/png, etc
-    validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 end

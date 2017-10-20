@@ -1,0 +1,13 @@
+.edit-photos-container {
+  margin-top: 10px;
+
+  .editable-photo {
+    display: inline-block;
+    margin-right: 20px;
+    width: 100px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

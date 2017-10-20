@@ -4,7 +4,7 @@
   .slick-slider
     - @van.photos.each do |p|
       %div
-        = image_tag p.image.url(:original)
+        = image_tag p.image.url(:large)
 .container
   .row
     .col-lg-10.col-lg-offset-1
@@ -12,6 +12,7 @@
         .col-lg-7
           %h1.van-title
             = @van.title
+            = link_to "edit van", edit_user_van_path(@van) if current_user == @van.user
           .van-make
             = @van.make
             = @van.model
@@ -59,35 +60,7 @@
           = @van.user.inspect
 
 
-#contactModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "contactModal", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} ×
-        %h3#paymentModalLabel.modal-title Get In Touch
-      = form_tag messages_path, method: :post, id: 'messageForm', remote: true do
-        .modal-body
-          .form-content
-            .errors
-            .form-group
-              = hidden_field_tag 'message[van_id]', @van.id
-
-              %label Your Name
-              = text_field_tag "message[name]", current_user.try(:name), class: 'form-control'
-
-            .form-group
-              %label Your Email
-              = text_field_tag "message[reply_to_email]", current_user.try(:email), class: 'form-control'
-
-            .form-group
-              %label Body
-              = text_area_tag 'message[body]', nil, rows: 5, class: 'form-control'
-
-        .modal-footer
-          %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
-          = submit_tag "Send", class: 'btn btn-primary btn-sm send-email-btn'
-
+= render partial: 'vans/contact_modal'
 
 :javascript
   $(document).ready(function(){

@@ -27,7 +27,7 @@ class VansController < ApplicationController
   end
 
   def show
-    @van = Van.find(params[:id])
+    @van = Van.includes(:photos).find(params[:id])
 
     if @van.is_paid? || @van.user_id == current_user.try(:id) #maybe not logged in
       render :show
@@ -42,10 +42,10 @@ class VansController < ApplicationController
     def van_params
       params
         .require(:van)
-          .permit(
-                  :condition, :mileage, :transmission, :vin, :fuel_type, :drivetrain, :features, :instagram_url,
-                  :title, :location, :description, :make, :model, :year, :price, :can_deliver
-                  )
+        .permit(
+                :condition, :mileage, :transmission, :vin, :fuel_type, :drivetrain, :features, :instagram_url,
+                :title, :location, :description, :make, :model, :year, :price, :can_deliver
+                )
     end
 
 end
