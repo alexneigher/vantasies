@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params.merge(van_id: 1))
+    @photo = Photo.new(photo_params.merge(company_id: 2))
 
     if @photo.save
       redirect_to photo_path(@photo)

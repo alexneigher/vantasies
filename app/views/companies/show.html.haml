@@ -3,3 +3,10 @@
 %hr
 OWNED BY
 = @company.user.inspect
+
+
+%hr
+PHOTOS
+
+- @company.photos.each do |p|
+  = image_tag p.image.url(:medium)

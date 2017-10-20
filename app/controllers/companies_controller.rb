@@ -17,11 +17,11 @@ class CompaniesController < ApplicationController
   end
 
   def index
-    @companies = Company.all
+    @companies = Company.includes(:photos).all
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.includes(:photos).find(params[:id])
   end
 
   private

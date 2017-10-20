@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
-  belongs_to :van
+  belongs_to :van, optional: true
+  belongs_to :company, optional: true
 
   has_attached_file :image, styles: {
     medium: '500x300>', #used on cards
