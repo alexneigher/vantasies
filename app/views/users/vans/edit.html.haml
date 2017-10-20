@@ -8,6 +8,7 @@
         - @van.photos.ordered.each_with_index do |p, i|
           .editable-photo{ data:{id: p.id} }
             = image_tag p.image.url(:medium)
+      .update-notification
   %hr
   .row
     .col-lg-8.col-lg-offset-2
