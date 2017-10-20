@@ -6,7 +6,7 @@
       %p= @company.description
       %p= @company.website_url
       %hr
-      - @company.photos.each do |p|
+      - @company.photos.ordered.each do |p|
         = image_tag p.image.url(:medium)
 
 
