@@ -1,7 +1,7 @@
 = link_to van_path(van) do
   .van-card
     .van-image{style: 'background: url('"#{van.card_photo}"') center center no-repeat;background-size:cover;'}
-      - if @van.is_for_sale?
+      - if van.is_for_sale?
         .van-price
           $
           = van.price
