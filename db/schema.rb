@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 20171020230545) do
     t.integer "drivetrain"
     t.boolean "is_for_sale", default: true
     t.datetime "deleted_at"
-    t.bigint "company_id"
     t.integer "condition", default: 0
+    t.bigint "company_id"
     t.index ["company_id"], name: "index_vans_on_company_id"
     t.index ["user_id"], name: "index_vans_on_user_id"
   end

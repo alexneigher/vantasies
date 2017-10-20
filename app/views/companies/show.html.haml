@@ -1,12 +1,12 @@
-= @company.inspect
+.row
+  .col-lg-8.col-lg-offset-2
+    .panel.pad3
+      %h1= @company.name
+      %p= @company.location
+      %p= @company.description
+      %p= @company.website_url
+      %hr
+      - @company.photos.each do |p|
+        = image_tag p.image.url(:medium)
 
-%hr
-OWNED BY
-= @company.user.inspect
 
-
-%hr
-PHOTOS
-
-- @company.photos.each do |p|
-  = image_tag p.image.url(:medium)
