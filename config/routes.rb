@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :photos
 
   resources :vans do
+    resources :photos, controller: 'vans/photos'
     put :reorder_photos, to: 'vans/photos#reorder_photos'
   end
 

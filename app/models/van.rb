@@ -15,6 +15,6 @@ class Van < ApplicationRecord
 
   def card_photo
     return "https://source.unsplash.com/random" unless photos.any?
-    photos.first.image.url(:medium)
+    photos.ordered.first.image.url(:medium)
   end
 end

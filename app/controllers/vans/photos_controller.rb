@@ -13,6 +13,16 @@ module Vans
         @van.photos.find(photo_id).update(display_order: i)
       end
     end
+
+    def create
+      @van = Van.find(params[:van_id])
+
+      if params[:van_photos][:photos].any?
+        params[:van_photos][:photos].each do |image|
+          @van.photos.create(image: image)
+        end
+      end
+    end
   end
 
 end
