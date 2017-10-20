@@ -24,4 +24,8 @@ class Van < ApplicationRecord
   def needs_to_pay?
     is_for_sale? && !is_paid?
   end
+
+  def owned_by_company?
+    company_id.present?
+  end
 end
