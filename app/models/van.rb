@@ -8,7 +8,7 @@ class Van < ApplicationRecord
   
   scope :paid, -> { where(is_paid: true) }
   
-  validates_presence_of :title, :location, :description, :make, :model, :year, :price
+  validates_presence_of :title, :description, :make, :model, :year, :price
 
   enum business_type: [:individual, :company]
   enum transmission: [:automatic, :manual]

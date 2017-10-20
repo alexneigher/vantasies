@@ -32,6 +32,9 @@
                   Is this van for sale?
                 .small
                   (We wont charge you until the next step)
+                .form-group
+                  %label Coupon
+                  = text_field_tag 'coupon_code', nil, class: 'form-control'
 
             .form-group
               %label Title

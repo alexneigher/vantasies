@@ -9,6 +9,11 @@ class VansController < ApplicationController
   def create
     @van = current_user.vans.new(van_params)
 
+    #so we can short circuit payment flow for paid listings
+    if params[:coupon_code] = 'nomadsonwheels'
+      @van.is_paid = true
+    end
+
     if @van.save
       if params[:photos]
         params[:photos].each { |image|
