@@ -17,6 +17,8 @@
           .card.text-center
             %h2 You sell custom vans
             %p Do you sell vans? Post your vans for sale here at a discounted rate!
+      %hr
+      
       .form-area
         = form_for @company, url: companies_path, method: :post do |f|
           .panel.pad3
@@ -24,3 +26,5 @@
               
               %label Company Name
               = f.text_field :name, class: 'form-control'
+            .form-group
+              = f.submit 'Save', class: 'btn btn-primary'

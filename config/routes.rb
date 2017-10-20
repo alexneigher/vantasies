@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     resources :vans, only: [:index, :edit, :update, :destroy], controller: 'users/vans'
   end
 
-  resources :companies
+  resources :companies do
+    resources :vans, controller: 'companies/vans'
+  end
 
   get :about, to: "static_pages#about"
 end
