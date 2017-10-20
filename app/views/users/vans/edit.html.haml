@@ -11,6 +11,7 @@
   %hr
   .row
     .col-lg-8.col-lg-offset-2
+      %h3 Edit Van
       .form-area
         = form_for @van, url: user_van_path(current_user, @van), method: :put do |f|
           .panel.pad3
@@ -103,7 +104,11 @@
               = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
               %p.error= show_errors(@van, :instagram_url)
 
-
-
           .form-group
             = f.submit 'Save', class: 'btn btn-primary'
+
+:javascript
+  $(function() {
+    $( ".edit-photos-container" ).sortable();
+    $( ".edit-photos-container" ).disableSelection();
+  });

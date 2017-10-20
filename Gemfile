@@ -23,6 +23,8 @@ gem "twitter-bootstrap-rails"
 
 gem "font-awesome-rails"
 
+gem 'jquery-ui-rails'
+
 
 #Payments
 gem 'stripe'
