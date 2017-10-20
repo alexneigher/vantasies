@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :photos
 
-  resources :vans
+  resources :vans do
+    put :reorder_photos, to: 'vans/photos#reorder_photos'
+  end
 
   resources :charges
 

@@ -7,6 +7,8 @@ class Photo < ApplicationRecord
     full_size: '2000x2000' #used to render full photo in modal
   }
 
+  scope :ordered, -> { order(:display_order) }
+
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 end
