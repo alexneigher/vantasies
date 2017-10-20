@@ -6,5 +6,4 @@ class User < ApplicationRecord
 
   has_many :vans
 
-  enum business_type: [:individual, :company]
 end

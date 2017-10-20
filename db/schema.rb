@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020192851) do
+ActiveRecord::Schema.define(version: 20171020210448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 20171020192851) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_charges_on_user_id"
     t.index ["van_id"], name: "index_charges_on_van_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.text "location"
+    t.boolean "sells_vans"
+    t.string "website_url"
+    t.string "instagram_url"
+    t.string "phone_number"
+    t.string "company_email_address"
+    t.text "description"
+    t.text "services_offered"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -60,7 +76,6 @@ ActiveRecord::Schema.define(version: 20171020192851) do
     t.inet "last_sign_in_ip"
     t.string "name"
     t.text "bio"
-    t.integer "business_type", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -96,6 +111,7 @@ ActiveRecord::Schema.define(version: 20171020192851) do
 
   add_foreign_key "charges", "users"
   add_foreign_key "charges", "vans"
+  add_foreign_key "companies", "users"
   add_foreign_key "messages", "vans"
   add_foreign_key "photos", "vans"
 end

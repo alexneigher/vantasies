@@ -10,7 +10,6 @@ class Van < ApplicationRecord
   
   validates_presence_of :title, :description, :make, :model, :year, :price
 
-  enum business_type: [:individual, :company]
   enum transmission: [:automatic, :manual]
 
   enum fuel_type: [:gas, :hybrid, :diesel, :electric]

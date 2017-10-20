@@ -1,0 +1,26 @@
+.container
+
+  .row
+    .col-lg-8.col-lg-offset-2
+      .row
+        .col-lg-12
+          %h1 What is a company?
+        .col-lg-6
+          .card.text-center
+            %h2
+              You do custom van work
+            %p
+              Do you want to showcase your work? Create a company and post photos of your work.
+              People who need work will contact you!
+
+        .col-lg-6
+          .card.text-center
+            %h2 You sell custom vans
+            %p Do you sell vans? Post your vans for sale here at a discounted rate!
+      .form-area
+        = form_for @company, url: companies_path, method: :post do |f|
+          .panel.pad3
+            .form-group
+              
+              %label Company Name
+              = f.text_field :name, class: 'form-control'
