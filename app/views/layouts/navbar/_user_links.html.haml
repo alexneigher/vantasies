@@ -10,10 +10,10 @@
         = link_to "My Vans", user_vans_path(current_user)
 
       %li.divider{:role => "separator"}
-
-      %li
-        = link_to "#", 'My Account' #user_account_path(current_user)
-      %li.divider{:role => "separator"}
+      - if current_user.has_company?
+        %li
+          = link_to current_user.company.name, company_path(current_user.company)
+        %li.divider{:role => "separator"}
       %li
         = link_to 'Logout', destroy_user_session_path, method: :delete
 
