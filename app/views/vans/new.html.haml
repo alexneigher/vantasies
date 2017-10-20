@@ -1,10 +1,9 @@
 .container
-
   .row
     .col-lg-8.col-lg-offset-2
       .row
         .col-lg-12
-          %h1 The tools to more effectively sell your van.
+          %h1 Post a Van
         .col-lg-4
           .card.text-center
             %h2
@@ -23,19 +22,8 @@
       .form-area
         = form_for @van, url: vans_path, method: :post, html: {multipart: true} do |f|
           %br{:style => "clear:both"}/
-          %h3{:style => "margin-bottom: 25px;"} New van
+          %h3{:style => "margin-bottom: 25px;"} About your van
           .panel.pad3
-            .form-group
-              .well
-                %label
-                  = f.check_box :is_for_sale, checked: false
-                  Is this van for sale?
-                .small
-                  (We wont charge you until the next step)
-                .form-group
-                  %label Coupon
-                  = text_field_tag 'coupon_code', nil, class: 'form-control'
-
             .form-group
               %label Title
               = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
@@ -46,7 +34,7 @@
               %p.error= show_errors(@van, :location)
             .form-group
               %label Condition
-              = f.text_field :condition, class: 'form-control', placeholder: 'Boulder, CO'
+              = f.select :condition, Van.conditions.keys.map {|f| [ f.titleize, f ] }, {}, class: 'form-control'
               %p.error= show_errors(@van, :condition)
 
             .form-group
@@ -73,15 +61,13 @@
               .col-lg-3
                 .form-group
                   %label Price
-                  = f.text_field :price, class: 'form-control', placeholder: '5000'
+                  .input-group
+                    .input-group-addon $
+                    = f.text_field :price, class: 'form-control', placeholder: '5000'
                   %p.error= show_errors(@van, :price)
 
-
+          %h3{:style => "margin-bottom: 25px;"} Van Details
           .panel.pad3
-            .form-group
-              %label
-                = f.check_box :can_deliver
-                Willing to Deliver?
             .row
               .col-lg-3
                 .form-group
@@ -113,9 +99,15 @@
 
             .form-group
               %label Features
-              = f.text_field :features, data: {role: 'tagsinput'}, placeholder: 'Solar, Fridge'
+              = f.text_field :features, data: {role: 'tagsinput'}, placeholder: 'Ex. Solar Power, Fridge, Bike Rack, etc'
+
+            .form-group
+              %label
+                = f.check_box :can_deliver
+                Willing to Deliver?
 
               %p.error= show_errors(@van, :features)
+          %h3{:style => "margin-bottom: 25px;"} Photos and Links
           .panel.pad3
             .form-group
               = file_field_tag "photos[]", type: :file, multiple: true
@@ -123,6 +115,23 @@
               %label Instagram URL
               = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
               %p.error= show_errors(@van, :instagram_url)
+          .form-group
+            .well
+              %h3.m00 Post this van for sale?
+              .row
+                .col-lg-4
+                  .panel.pad1x.m2y
+                    .checkbox
+                      %label
+                        = f.check_box :is_for_sale, checked: false
+                        %span{style: "font-size: 20px"} Basic Posting ($99)
+              .small
+                (We wont charge you until the next step)
+              .row
+                .col-lg-4
+                  .form-group
+                    %label Coupon Code
+                    = text_field_tag 'coupon_code', nil, class: 'form-control'
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020210448) do
+ActiveRecord::Schema.define(version: 20171020220733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 20171020210448) do
     t.string "make"
     t.string "model"
     t.string "year"
-    t.string "condition"
     t.string "mileage"
     t.string "price"
     t.string "vin"
@@ -106,6 +105,7 @@ ActiveRecord::Schema.define(version: 20171020210448) do
     t.integer "drivetrain"
     t.boolean "is_for_sale", default: true
     t.datetime "deleted_at"
+    t.integer "condition", default: 0
     t.index ["user_id"], name: "index_vans_on_user_id"
   end
 
