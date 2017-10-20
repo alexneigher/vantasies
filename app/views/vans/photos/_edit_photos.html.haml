@@ -2,11 +2,12 @@
   %h3 Edit Photos
   %small.small.text-muted
     (Drag to reorder, click delete to remove)
-  .edit-photos-container
+  .edit-photos-container.clearfix
     - @van.photos.ordered.each_with_index do |p, i|
       .editable-photo{ data:{id: p.id} }
         = image_tag p.image.url(:medium)
   .update-notification
+  %br
   %p Upload more
   = form_for :van_photos, url: van_photos_path(@van), method: :post, authenticity_token: true, :html => { :multipart => true, "data-type" => :js }, :remote => true do |f|
     = f.file_field :photos, type: :file, multiple: true
