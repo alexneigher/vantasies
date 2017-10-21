@@ -28,4 +28,13 @@ class Van < ApplicationRecord
   def owned_by_company?
     company_id.present?
   end
+
+  def ready_to_view?(user)
+    return true if user_id == user.try(:id) #this person is the author
+    return true if is_paid?
+
+    return true if !is_for_sale?
+    
+    false
+  end
 end
