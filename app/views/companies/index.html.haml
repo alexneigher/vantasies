@@ -9,7 +9,12 @@
   .row
     .col-lg-12
       - @companies.each do |company|
-        .panel.company-card
-          %h2= company.name
-          %p= company.location
-          %p= company.services_offered
+        = link_to company_path(company) do
+          .panel.company-card
+            .row
+              .col-sm-2
+                = image_tag company.card_photo
+              .col-sm-10
+                %h2= company.name
+                %p= company.location
+                %p= company.services_offered
