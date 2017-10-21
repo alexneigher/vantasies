@@ -35,6 +35,10 @@ gem 'stripe'
 # Photo Upload
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem "delayed_paperclip"
+
+#Background stufff
+gem 'delayed_job_active_record'
 
 
 group :development, :test do

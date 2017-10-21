@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020230545) do
+ActiveRecord::Schema.define(version: 20171020234010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,21 @@ ActiveRecord::Schema.define(version: 20171020230545) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "van_id"
     t.string "reply_to_email"
@@ -61,6 +76,7 @@ ActiveRecord::Schema.define(version: 20171020230545) do
     t.datetime "image_updated_at"
     t.integer "display_order", default: 0
     t.bigint "company_id"
+    t.boolean "image_processing"
     t.index ["company_id"], name: "index_photos_on_company_id"
     t.index ["van_id"], name: "index_photos_on_van_id"
   end
@@ -107,8 +123,8 @@ ActiveRecord::Schema.define(version: 20171020230545) do
     t.integer "drivetrain"
     t.boolean "is_for_sale", default: true
     t.datetime "deleted_at"
-    t.integer "condition", default: 0
     t.bigint "company_id"
+    t.integer "condition", default: 0
     t.index ["company_id"], name: "index_vans_on_company_id"
     t.index ["user_id"], name: "index_vans_on_user_id"
   end
