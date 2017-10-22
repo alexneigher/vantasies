@@ -35,6 +35,10 @@ gem 'stripe'
 # Photo Upload
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem "delayed_paperclip"
+
+#Background stufff
+gem 'delayed_job_active_record'
 
 
 group :development, :test do
@@ -61,7 +65,7 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
 end

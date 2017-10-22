@@ -36,7 +36,7 @@ class VansController < ApplicationController
   def show
     @van = Van.includes(:photos).find(params[:id])
 
-    if @van.is_paid? || @van.user_id == current_user.try(:id) #maybe not logged in
+    if @van.ready_to_view?(current_user)
       render :show
     else
       flash[:warning] = "We can't find that van"

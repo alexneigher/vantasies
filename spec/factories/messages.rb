@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :message do
     van nil
     reply_to "MyString"

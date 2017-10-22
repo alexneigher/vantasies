@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :charge do
     user nil
     stripe_charge_id "MyString"
