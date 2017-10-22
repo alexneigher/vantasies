@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :vans do
     get 'for-sale', to: 'for_sale#index'
-    get 'inspired', to: 'inspired#index'
+    get 'inspiration', to: 'inspiration#index'
   end
 
   root "welcome#show"
