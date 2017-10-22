@@ -7,6 +7,8 @@ class Van < ApplicationRecord
   has_many :charges
 
   scope :paid, -> { where(is_paid: true) }
+  scope :for_sale, -> { where(is_for_sale: true) }
+  scope :not_for_sale, -> { where(is_for_sale: false) }
 
   validates_presence_of :title, :description, :make, :model, :year, :price
 

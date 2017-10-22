@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  namespace :vans do
+    get 'for-sale', to: 'for_sale#index'
+    get 'inspired', to: 'inspired#index'
+  end
+
   root "welcome#show"
 
   resources :photos
@@ -29,4 +34,6 @@ Rails.application.routes.draw do
   end
 
   get :about, to: "static_pages#about"
+
+
 end
