@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
 
   def new
+    redirect_to root_path if current_user.has_company?
     @company = Company.new
   end
 
@@ -32,6 +33,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.includes(:photos, vans: :photos).find(params[:id])
+    redirect_to companies_path unless @company.ready_to_view?(current_user)
   end
 
   private

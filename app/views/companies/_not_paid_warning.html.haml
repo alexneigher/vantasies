@@ -1,8 +1,8 @@
-- return nil unless @van.needs_to_pay?
+- return nil if @company.is_paid?
 
 .row-fluid
   .not-paid-warning
-    Your listing isn't live yet. Only you can see this page. Enter your credit card info to publish your listing.
+    Your company isn't live yet. Only you can see this page. Enter your credit card info to publish your company.
     %a{"data-target" => "#paymentModal", "data-toggle" => "modal", :href => "#paymentModal", :class =>'btn btn-default'} Publish Now
 
 
@@ -13,25 +13,24 @@
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
-        %h3#paymentModalLabel.modal-title Your listing isn't live yet!
+        %h3#paymentModalLabel.modal-title Your company isn't live yet!
       .modal-body
         = flash[:error]
         %form#payment-form.form-group{:action => "/charge", :method => "post"}
           .form-row.pad2b
-            $99 dolla plz
+            For $19.99 a month, you can showcase your work, and be connected with van owners everywhere.
           .form-row
             %label{:for => "card-element"}
               Credit or debit card
             #card-element
             #card-errors{:role => "alert"}
           .form-group.m2t
-            %button.btn.btn-primary Submit Payment
+            %button.btn.btn-primary Sign Up
 
         .hidden
-          = form_tag charges_path, method: :post, id: 'chargeForm' do
+          = form_tag customers_path, method: :post, id: 'customerForm' do
             = text_field_tag ['stripe_token']
-            = text_field_tag ['user_id'], current_user.id
-            = text_field_tag ['van_id'], @van.id
+            = text_field_tag ['company_id'], @company.id
 
       .modal-footer
         %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
@@ -92,7 +91,7 @@
         // Populate the token param
         console.log(result.token)
         $('#__stripe_token_').val(result.token.id);
-        $('#chargeForm').submit();
+        $('#customerForm').submit();
       }
     });
   });

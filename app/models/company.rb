@@ -10,4 +10,9 @@ class Company < ApplicationRecord
     return "https://source.unsplash.com/random" unless photos.any?
     photos.ordered.first.image.url(:medium)
   end
+
+  def ready_to_view?(current_user)
+    return true if user_id == current_user.try(:id) #this person is the author
+    return true if is_paid?
+  end
 end

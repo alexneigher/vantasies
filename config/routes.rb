@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     put :reorder_photos, to: 'vans/photos#reorder_photos'
   end
 
-  resources :charges
+  resources :charges #when a user sells a 1-off van
+  resources :customers #when a company gets a subscription
 
   resources :messages
 

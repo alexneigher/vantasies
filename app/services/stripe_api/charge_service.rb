@@ -1,14 +1,14 @@
 module StripeApi
   class ChargeService
     CHARGE_AMOUNT = 9900
-    class ChargeFailedError < StandardError; end
 
-    attr_accessor :van, :user
+    attr_accessor :van, :user, :errors
 
     def initialize(params)
       @user = User.find(params[:user_id])
       @van = Van.find(params[:van_id])
       @token = params[:stripe_token]
+      @errors = []
     end
 
     def perform
@@ -22,12 +22,12 @@ module StripeApi
                   :metadata => {"user_id" => @user.id, "van_id" => @van.id, "user_email" => @user.email},
                   :source => @token,
                 )
-        raise ChargeFailedError unless charge.paid?
-        persist_charge(charge)
-
-      rescue ChargeFailedError
+      rescue => e
+        binding.pry
+        @errors << e.to_s
         return false
       end
+      persist_charge(charge)
     end
 
     private

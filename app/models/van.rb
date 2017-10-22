@@ -29,8 +29,8 @@ class Van < ApplicationRecord
     company_id.present?
   end
 
-  def ready_to_view?(user)
-    return true if user_id == user.try(:id) #this person is the author
+  def ready_to_view?(current_user)
+    return true if user_id == current_user.try(:id) #this person is the author
     return true if is_paid?
 
     return true if !is_for_sale?

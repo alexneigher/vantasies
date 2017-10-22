@@ -1,3 +1,4 @@
+#used to create 1-off charges on individuals posting vans
 class ChargesController < ApplicationController
 
   def new
@@ -9,7 +10,7 @@ class ChargesController < ApplicationController
     if service.perform
       flash[:success] = 'Your van is live!'
     else
-      flash[:error] = "There was a problem charging this card"
+      flash[:error] = "There was a problem charging this card - #{service.errors.join()}"
     end
 
     redirect_to van_path(service.van)
