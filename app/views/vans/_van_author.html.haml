@@ -1,5 +1,5 @@
 - if @van.owned_by_company?
-  .map-wrap{style: 'background: url('"#{@van.company.photos.ordered.first.image.url(:original)}"') center center no-repeat;background-size:cover;'}
+  .map-wrap{style: 'background: url('"#{@van.original_photo}"') center center no-repeat;background-size:cover;'}
     .container
       .row
         .col-lg-6.col-lg-offset-3
