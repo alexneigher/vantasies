@@ -1,7 +1,7 @@
 = content_for(:og_tags) do
   %meta{:content => "#{@van.title} - $#{@van.price}", :name => "og:title"}/
   %meta{:content => @van.description, :name => "og:description"}
-  %meta{:content => @van.card_photo, :name => "og:image"}
+  %meta{:content => @van.photos.ordered.first.image.url(:original), :name => "og:image"}
 
 = render partial: 'vans/not_paid_warning'
 
