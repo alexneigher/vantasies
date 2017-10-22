@@ -59,27 +59,7 @@
               %h3 Features
               = van_feature_tags(@van.features)
 .row-fluid
-  .map-wrap
-    .container
-      .row
-        .col-lg-10.col-lg-offset-1
-          %h3 Added by
-          .row
-            - if @van.owned_by_company?
-              .col-lg-4
-                DO A DIFFERENT THING
-            - else
-              .col-lg-4
-                .panel.pad3
-                  %h3
-                    = @van.user.name
-                  %p
-                    = @van.user.bio
-
-                  - if @van.is_for_sale?
-                    %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
-                      Contact
-
+  = render partial: 'vans/van_author'
 
 = render partial: 'vans/contact_modal'
 

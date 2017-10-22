@@ -1,0 +1,31 @@
+- if @van.owned_by_company?
+  .map-wrap{style: 'background: url('"#{@van.company.photos.ordered.first.image.url(:original)}"') center center no-repeat;background-size:cover;'}
+    .container
+      .row
+        .col-lg-10.col-lg-offset-1
+          %h3 Added by
+          .row
+            .col-lg-4
+              .panel.pad3
+                %h3= @van.company.name
+                %p
+                  = link_to company_path(@van.company), class: 'btn btn-primary btn-block' do
+                    View Company
+- else
+
+  .map-wrap
+    .container
+      .row
+        .col-lg-10.col-lg-offset-1
+          %h3 Added by
+          .row
+            .col-lg-4
+              .panel.pad3
+                %h3
+                  = @van.user.name
+                %p
+                  = @van.user.bio
+
+                - if @van.is_for_sale?
+                  %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
+                    Contact

@@ -2,6 +2,7 @@ class Van < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :user
+  belongs_to :company, optional: true
   has_many :photos
   has_many :messages
   has_many :charges
