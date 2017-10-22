@@ -5,7 +5,11 @@
   %hr
   .row
     .col-lg-8.col-lg-offset-2
-      %h3 Edit Van
+      .clearfix
+        %h3.pull-left Edit Van
+        = link_to user_van_path(current_user, @van, van: {is_sold: true}), method: :put, class: 'btn btn-sm btn-secondary pull-right' do
+          Mark as sold!
+
       .form-area
         = form_for @van, url: user_van_path(current_user, @van), method: :put do |f|
           .panel.pad3

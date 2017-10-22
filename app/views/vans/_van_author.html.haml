@@ -26,5 +26,9 @@
                 = @van.user.bio
 
               - if @van.is_for_sale?
-                %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
-                  Get in Touch
+                - if @van.is_sold?
+                  %a.btn.btn-primary.btn-block{:class =>'btn btn-default'}
+                    SOLD!
+                - else
+                  %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
+                    Get in Touch
