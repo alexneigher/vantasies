@@ -1,12 +1,38 @@
-.row
-  .col-lg-8.col-lg-offset-2
-    .panel.pad3
-      %h1= @company.name
-      %p= @company.location
-      %p= @company.description
-      %p= @company.website_url
-      %hr
-      - @company.photos.each do |p|
-        = image_tag p.image.url(:medium)
+%div.container
+  .row
+    .col-lg-12
+      .panel.m4t
+        .container-slick
+          .slick-slider
+            - @company.photos.ordered.each do |p|
+              %div
+                = image_tag p.image.url(:large)
+
+        .pad3.text-center
+          %h1= @company.name
+          %p= @company.location
+          %p= @company.description
+          %p= @company.website_url
+          .text-center.m4y
+            = link_to "Visit Company Website", @company.website_url, class: 'btn btn-primary'
+  .row
+    - @company.vans.each do |van|
+      .col-lg-4
+        = render partial: "components/van-card", locals: {van: van}
+
+:javascript
+  $(document).ready(function(){
+    $('.slick-slider').slick({
+       dots: true,
+       adaptiveHeight: false,
+       variableWidth: true,
+       centerMode: true,
+       arrows: true,
+       centerPadding: 10,
+       autoplay: true,
+       autoplaySpeed: 4000
+     });
+  });
+
 
 

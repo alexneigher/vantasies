@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.includes(:photos).find(params[:id])
+    @company = Company.includes(:photos, vans: :photos).find(params[:id])
   end
 
   private
