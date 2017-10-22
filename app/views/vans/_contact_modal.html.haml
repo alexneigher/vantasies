@@ -6,7 +6,7 @@
           %span{"aria-hidden" => "true"} ×
         %h3#paymentModalLabel.modal-title Get In Touch
       = form_tag messages_path, method: :post, id: 'messageForm', remote: true do
-        .modal-body
+        .modal-body.pad3
           .form-content
             .errors
             .form-group
@@ -20,9 +20,9 @@
               = text_field_tag "message[reply_to_email]", current_user.try(:email), class: 'form-control'
 
             .form-group
-              %label Body
+              %label Your Message
               = text_area_tag 'message[body]', nil, rows: 5, class: 'form-control'
 
         .modal-footer
-          %button.btn.btn-default.btn-sm{"data-dismiss" => "modal", :type => "button"} Close
-          = submit_tag "Send", class: 'btn btn-primary btn-sm send-email-btn'
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+          = submit_tag "Send", class: 'btn btn-primary send-email-btn'

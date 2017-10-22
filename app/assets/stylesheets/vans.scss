@@ -76,7 +76,20 @@
   color: #fff;
   padding: 20px 10px;
 }
-
+.van-author{
+  .added-by{
+    font-size: 16px;
+    opacity: 0.3;
+    font-weight: 600;
+    margin: 0;
+    text-transfrom: uppercase;
+  }
+  h3{
+    margin:0;
+    padding-bottom: 15px;
+    font-size: 30px;
+  }
+}
 
 .bootstrap-tagsinput{
   display: block;
