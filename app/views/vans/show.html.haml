@@ -1,5 +1,5 @@
 = content_for(:og_tags) do
-  %meta{:content => "#{@van.title} - #{@van.price}", :name => "og:title"}/
+  %meta{:content => "#{@van.title} - $#{@van.price}", :name => "og:title"}/
   %meta{:content => @van.description, :name => "og:description"}
   %meta{:content => @van.card_photo, :name => "og:image"}
 
