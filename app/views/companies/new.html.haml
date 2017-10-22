@@ -34,7 +34,9 @@
               .col-lg-6
                 .form-group
                   %label Website
-                  = f.text_field :website_url, class: 'form-control'
+                  .input-group
+                    .input-group-addon http://
+                    = f.text_field :website_url, class: 'form-control'
               .col-lg-6
                 .form-group
                   %label Phone Number
