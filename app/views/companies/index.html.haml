@@ -1,20 +1,23 @@
 .container
   .row.pad4y
     .col-lg-8
-      %h1 Companies
+      %h1.m00 Companies
       %p Find local companies for van rentals, van buildouts, or adventure vehicle dealerships.
     .col-lg-4.text-right
       = link_to "Add Your Company", new_company_path, class: 'btn btn-primary'
+  .row
+    .col-lg-12
+      .form-group
+        %label Location
+        = text_field :location, class: 'form-control'
+      .form-group
+        .btn-group{"aria-label" => "Basic example", :role => "group"}
+          %button.btn.btn-default{:type => "button"} Dealerships
+          %button.btn.btn-default{:type => "button"} Builders
+          %button.btn.btn-default{:type => "button"} Van Rentals
+
 
   .row
     .col-lg-12
       - @companies.each do |company|
-        = link_to company_path(company) do
-          .panel.company-card
-            .row
-              .col-sm-2
-                = image_tag company.card_photo
-              .col-sm-10
-                %h2= company.name
-                %p= company.location
-                %p= company.services_offered
+        = render partial: "components/company-card", locals: {company: company}
