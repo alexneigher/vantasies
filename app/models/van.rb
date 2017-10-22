@@ -11,7 +11,9 @@ class Van < ApplicationRecord
   scope :for_sale, -> { where(is_for_sale: true) }
   scope :not_for_sale, -> { where(is_for_sale: false) }
 
-  validates_presence_of :title, :description, :make, :model, :year, :price
+  validates_presence_of :title, :description, :make, :model, :year
+
+  validates :price, presence: true, if: :is_for_sale
 
   enum transmission: [:automatic, :manual]
 
@@ -22,6 +24,11 @@ class Van < ApplicationRecord
   def card_photo
     return "https://source.unsplash.com/random" unless photos.any?
     photos.ordered.first.image.url(:medium)
+  end
+
+  def original_photo
+    return '' unless photos.any?
+    photos.ordered.first.image.url(:original)
   end
 
   def needs_to_pay?

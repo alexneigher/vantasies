@@ -11,6 +11,11 @@ class Company < ApplicationRecord
     photos.ordered.first.image.url(:medium)
   end
 
+  def original_photo
+    return '' unless photos.any?
+    photos.ordered.first.image.url(:original)
+  end
+
   def ready_to_view?(current_user)
     return true if user_id == current_user.try(:id) #this person is the author
     return true if is_paid?
