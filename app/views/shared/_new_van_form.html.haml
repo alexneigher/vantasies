@@ -1,6 +1,8 @@
 %br{:style => "clear:both"}/
-%h3{:style => "margin-bottom: 25px;"} About your van
-.panel.pad3
+
+.panel.pad3.m4b
+  %h3.m00 About your van
+  %hr
   .form-group
     %label Title
     = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
@@ -43,8 +45,9 @@
           = f.text_field :price, class: 'form-control', placeholder: '5000'
         %p.error= show_errors(@van, :price)
 
-%h3{:style => "margin-bottom: 25px;"} Van Details
-.panel.pad3
+.panel.pad3.m4b
+  %h3.m00 Van Details
+  %hr
   .row
     .col-lg-3
       .form-group
@@ -84,8 +87,9 @@
       Willing to Deliver?
 
     %p.error= show_errors(@van, :features)
-%h3{:style => "margin-bottom: 25px;"} Photos and Links
 .panel.pad3
+  %h3.m00 Photos and Links
+  %hr
   .form-group
     = file_field_tag "photos[]", type: :file, multiple: true
   .form-group
