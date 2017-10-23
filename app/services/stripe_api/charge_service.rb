@@ -23,7 +23,6 @@ module StripeApi
                   :source => @token,
                 )
       rescue => e
-        binding.pry
         @errors << e.to_s
         return false
       end
