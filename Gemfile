@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'erubis', '~> 2.7'
 
+gem 'rails_admin'
+
 gem 'remotipart'
 gem "paranoia"
 
