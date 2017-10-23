@@ -6,15 +6,16 @@
 
 .container
   .row
-    .homepage-header
-      .homepage-header--content
-        .container
-          .row
-            .col-lg-8.col-lg-offset-2
-              %h1 Find, share, and sell adventure vans.
-              %p.pad2b We're here to help fulfill your wildest vantasies
-              = link_to "Browse Awesome Vans", vans_path, class: 'btn btn-primary m1r'
-              = link_to "Post a Van", new_van_path, class: 'btn btn-default'
+    .col-lg-12
+      .homepage-header
+        .homepage-header--content
+          .container
+            .row
+              .col-lg-8.col-lg-offset-2
+                %h1 Find, share, and sell adventure vans.
+                %p.pad2b We're here to help fulfill your wildest vantasies
+                = link_to "Browse Awesome Vans", vans_path, class: 'btn btn-primary m1r'
+                = link_to "Post a Van", new_van_path, class: 'btn btn-default'
 
 .container
   .row.text-center.pad4y
