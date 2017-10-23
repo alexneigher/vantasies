@@ -1,6 +1,6 @@
 module StripeApi
   class ChargeService
-    CHARGE_AMOUNT = 6900
+    CHARGE_AMOUNT = 2000
 
     attr_accessor :van, :user, :errors
 
