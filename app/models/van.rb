@@ -11,7 +11,7 @@ class Van < ApplicationRecord
   scope :for_sale, -> { where(is_for_sale: true) }
   scope :not_for_sale, -> { where(is_for_sale: false) }
 
-  validates_presence_of :title, :description, :make, :model, :year
+  validates_presence_of :title, :description
 
   validates :price, presence: true, if: :is_for_sale
 
