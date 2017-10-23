@@ -18,15 +18,19 @@
             .form-group
               .well
                 %h3.m00 Post this van for sale?
+                %hr
                 .row
                   .col-lg-4
-                    .panel.pad1x.m2y
-                      .checkbox
-                        %label
-                          = f.check_box :is_for_sale, checked: true
-                          %span{style: "font-size: 20px"} Basic Posting ($99)
-                .small
-                  (We wont charge you until the next step)
+                    .btn-group.colors{"data-toggle" => "buttons"}
+                      %label.btn.btn-default.active{ data: { toggle: "collapse" }, href: "#couponContainer"}
+                        = f.radio_button :is_for_sale, 1, checked: 'checked'
+                        Yes
+                      %label.btn.btn-default{ data: { toggle: "collapse" }, href: "#couponContainer"}
+                        = f.radio_button :is_for_sale, 0, checked: false
+                        No
+                #couponContainer
+                  .small
+                    (We wont charge you until the next step)
 
           .form-group
             = f.submit 'Save', class: 'btn btn-primary'

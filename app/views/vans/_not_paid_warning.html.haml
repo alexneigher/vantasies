@@ -18,14 +18,14 @@
         = flash[:error]
         %form#payment-form.form-group{:action => "/charge", :method => "post"}
           .form-row.pad2b
-            $69 dolla plz
+            A single posting is $20, and your listing will remain live for as long as you'd like.
           .form-row
             %label{:for => "card-element"}
               Credit or debit card
             #card-element
             #card-errors{:role => "alert"}
           .form-group.m2t
-            %button.btn.btn-primary Submit Payment
+            %button.btn.btn-primary Charge $20
 
         .hidden
           = form_tag charges_path, method: :post, id: 'chargeForm' do
