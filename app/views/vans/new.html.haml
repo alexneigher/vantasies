@@ -2,23 +2,9 @@
   .row
     .col-lg-8.col-lg-offset-2
       .row
-        .col-lg-12
+        .col-lg-9
           %h1 Post a Van
-        .col-lg-4
-          .card.text-center
-            %h2
-              FREE
-            %p Show it off
-        .col-lg-4
-          .card.text-center
-            %h2
-              $69
-            %p Sell your van
-        .col-lg-4
-          .card.text-center
-            %h2
-              $599
-            %p Are you a dealer or builer? Get in touch.
+          %p= "It's <strong> free</strong> to share your van with the community, or <strong>$69</strong> to post it for sale. Your listing will stay live until it sells or you take it down.".html_safe
       .form-area
         = form_for @van, url: vans_path, method: :post, html: {multipart: true} do |f|
           = render partial: 'shared/new_van_form', locals: {f: f}
