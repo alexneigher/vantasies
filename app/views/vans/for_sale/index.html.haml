@@ -3,6 +3,10 @@
     .col-lg-7
       %h1 Vans for Sale
   .row
-    - @vans.each do |van|
-      .col-lg-4
-        = render partial: "components/van-card", locals: {van: van}
+    - if @vans.present?
+      - @vans.each do |van|
+        .col-lg-4
+          = render partial: "components/van-card", locals: {van: van}
+    - else
+      %p There are no vehicles currently listed.
+      = link_to "Post a Van", new_van_path, class: 'btn btn-primary'
