@@ -1,5 +1,5 @@
 - if @van.owned_by_company?
-  .map-wrap{style: 'background: url('"#{@van.original_photo}"') center center no-repeat;background-size:cover;'}
+  .map-wrap.background-darken{style: 'background: url('"#{@van.original_photo}"') center center no-repeat;background-size:cover;'}
     .container
       .row
         .col-lg-6.col-lg-offset-3
@@ -15,20 +15,18 @@
   .map-wrap
     .container
       .row
+        .col-lg-6.col-lg-offset-3
+          .panel.pad3.van-author.text-center
+            %p.added-by Added by
+            %h3
+              = @van.user.name
+            %p
+              = @van.user.bio
 
-        .row
-          .col-lg-6.col-lg-offset-3
-            .panel.pad3.van-author.text-center
-              %p.added-by Added by
-              %h3
-                = @van.user.name
-              %p
-                = @van.user.bio
-
-              - if @van.is_for_sale?
-                - if @van.is_sold?
-                  %a.btn.btn-primary.btn-block{:class =>'btn btn-default'}
-                    SOLD!
-                - else
-                  %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
-                    Get in Touch
+            - if @van.is_for_sale?
+              - if @van.is_sold?
+                %a.btn.btn-primary.btn-block{:class =>'btn btn-default'}
+                  SOLD!
+              - else
+                %a.btn.btn-primary.btn-block{"data-target" => "#contactModal", "data-toggle" => "modal", :href => "#contactModal", :class =>'btn btn-default'}
+                  Get in Touch
