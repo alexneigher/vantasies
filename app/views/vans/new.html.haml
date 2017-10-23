@@ -2,31 +2,35 @@
   .row
     .col-lg-8.col-lg-offset-2
       .row
-        .col-lg-9
+        .col-lg-12
           %h1 Post a Van
-          %p= "It's <strong> free</strong> to share your van with the community, or <strong>$69</strong> to post it for sale. Your listing will stay live until it sells or you take it down.".html_safe
+          %p= "It's <strong> free</strong> to share your van with the community. If you want to list your van for sale, it costs $20 to post. Your listing will stay live until it sells or you take it down.".html_safe
       .form-area
         = form_for @van, url: vans_path, method: :post, html: {multipart: true} do |f|
           = render partial: 'shared/new_van_form', locals: {f: f}
           .form-group
             .well
               %h3.m00 Post this van for sale?
+              %hr
               .row
                 .col-lg-4
-                  .panel.pad1x.m2y
-                    .checkbox
-                      %label
-                        = f.check_box :is_for_sale, checked: false
-                        %span{style: "font-size: 20px"} Basic Posting ($99)
-              .small
-                (We wont charge you until the next step)
-              .row
-                .col-lg-4
-                  .form-group
-                    %label Coupon Code
-                    = text_field_tag 'coupon_code', nil, class: 'form-control'
+                  .btn-group.colors{"data-toggle" => "buttons"}
+                    %label.btn.btn-default{ data: { toggle: "collapse" }, href: "#couponContainer"}
+                      = f.radio_button :is_for_sale, 1, checked: false
+                      Yes
+                    %label.btn.btn-default.active{ data: { toggle: "collapse" }, href: "#couponContainer"}
+                      = f.radio_button :is_for_sale, 0, checked: 'checked'
+                      No
+              #couponContainer.collapse
+                .small
+                  (We wont charge you until the next step)
+                .row
+                  .col-lg-4
+                    .form-group
+                      %label Coupon Code
+                      = text_field_tag 'coupon_code', nil, class: 'form-control'
 
-
+                
 
           .form-group
             = f.submit 'Save', class: 'btn btn-primary'
