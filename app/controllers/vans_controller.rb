@@ -12,7 +12,7 @@ class VansController < ApplicationController
     @van = current_user.vans.new(van_params)
 
     #so we can short circuit payment flow for paid listings
-    if params[:coupon_code] = 'nomadsonwheels'
+    if params[:coupon_code] == 'nomadsonwheels'
       @van.is_paid = true
     end
 
