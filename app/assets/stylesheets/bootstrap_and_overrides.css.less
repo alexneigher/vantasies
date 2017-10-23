@@ -5,7 +5,7 @@
 }
 .navbar{
   margin-bottom: 0px;
-  padding: 20px 0;
+  padding: 20px 0 16px;
   background: #fff;
   border: none;
 }
@@ -26,7 +26,10 @@
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 0.5px;
-
+  border-bottom: 4px solid transparent;
+  &.active{
+    border-bottom: 4px solid #ffeb3b;
+  }
 }
 .form-control{
   height: 48px;

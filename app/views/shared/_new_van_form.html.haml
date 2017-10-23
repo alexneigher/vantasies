@@ -4,46 +4,54 @@
   %h3.m00 About your van
   %hr
   .form-group
-    %label Title
-    = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
-    %p.error= show_errors(@van, :title)
+    %div{class: ('has-error' if show_errors(@van, :title).present?)}
+      %label Title
+      = f.text_field :title, class: 'form-control', placeholder: 'Vanta White'
+      %p.error= show_errors(@van, :title)
   .form-group
-    %label Location
-    = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
-    %p.error= show_errors(@van, :location)
+    %div{class: ('has-error' if show_errors(@van, :location).present?)}
+      %label Location
+      = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
+      %p.error= show_errors(@van, :location)
   .form-group
-    %label Condition
-    = f.select :condition, Van.conditions.keys.map {|f| [ f.titleize, f ] }, {}, class: 'form-control'
-    %p.error= show_errors(@van, :condition)
+    %div{class: ('has-error' if show_errors(@van, :condition).present?)}
+      %label Condition
+      = f.select :condition, Van.conditions.keys.map {|f| [ f.titleize, f ] }, {}, class: 'form-control'
+      %p.error= show_errors(@van, :condition)
 
   .form-group
-    %label Description
-    = f.text_area :description, class: 'form-control', rows: 8
-    %p.error= show_errors(@van, :description)
+    %div{class: ('has-error' if show_errors(@van, :description).present?)}
+      %label Description
+      = f.text_area :description, class: 'form-control', rows: 8
+      %p.error= show_errors(@van, :description)
   .row
     .col-lg-4
       .form-group
-        %label Make
-        = f.text_field :make, class: 'form-control', placeholder: 'Ford'
-        %p.error= show_errors(@van, :make)
+        %div{class: ('has-error' if show_errors(@van, :make))}
+          %label Make
+          = f.text_field :make, class: 'form-control', placeholder: 'Ford'
+          %p.error= show_errors(@van, :make)
     .col-lg-4
-      %label Model
-      = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
-      %p.error= show_errors(@van, :model)
+      %div{class: ('has-error' if show_errors(@van, :model))}
+        %label Model
+        = f.text_field :model, class: 'form-control', placeholder: 'Easy Rider'
+        %p.error= show_errors(@van, :model)
 
     .col-lg-4
-      %label Year
-      = f.text_field :year, class: 'form-control', placeholder: '2001'
-      %p.error= show_errors(@van, :year)
+      %div{class: ('has-error' if show_errors(@van, :year).present?)}
+        %label Year
+        = f.text_field :year, class: 'form-control', placeholder: '2001'
+        %p.error= show_errors(@van, :year)
 
   .row
     .col-lg-3
       .form-group
-        %label Price
-        .input-group
-          .input-group-addon $
-          = f.text_field :price, class: 'form-control', placeholder: '5000'
-        %p.error= show_errors(@van, :price)
+        %div{class: ('has-error' if show_errors(@van, :price).present?)}
+          %label Price
+          .input-group
+            .input-group-addon $
+            = f.text_field :price, class: 'form-control', placeholder: '5000'
+          %p.error= show_errors(@van, :price)
 
 .panel.pad3.m4b
   %h3.m00 Van Details

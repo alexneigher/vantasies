@@ -68,6 +68,24 @@
 .map-wrap{
   background: #efefef;
   padding: 100px 0;
+  position: relative;
+}
+
+.background-darken{
+  position: relative;
+  &:after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  div, h1, img, span, h2, p {
+    z-index: 99999;
+  }
 }
 
 .not-paid-warning{
@@ -94,7 +112,7 @@
 .bootstrap-tagsinput{
   display: block;
   width: 100%;
-  height: 48px;
+  min-height: 48px;
   padding: 6px 12px;
   font-size: 18px;
   line-height: 30px;
@@ -111,5 +129,5 @@
   display: inline-block;
   padding: 10px;
   border: 1px solid #efefef;
-  margin-right: 15px;
+  margin: 10px 15px 10px 0;
 }
