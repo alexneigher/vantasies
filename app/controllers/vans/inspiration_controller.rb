@@ -1,8 +1,8 @@
 module Vans
   class InspirationController < ApplicationController
-    
+
     def index
-      @vans = Van.not_for_sale.includes(:photos)
+      @vans = Van.order(created_at: :desc).not_for_sale.includes(:photos)
     end
   end
 end
