@@ -96,10 +96,13 @@
 
     %p.error= show_errors(@van, :features)
 .panel.pad3
-  %h3.m00 Photos and Links
+  %h3.m00 Add Photos and Links
   %hr
   .form-group
-    = file_field_tag "photos[]", type: :file, multiple: true
+    %label Add as many photos as you like!
+    %br
+    .btn.btn-primary
+      = file_field_tag "photos[]", type: :file, multiple: true
   .form-group
     %label Instagram URL
     = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
