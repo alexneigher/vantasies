@@ -22,7 +22,7 @@ class Van < ApplicationRecord
   enum condition: [:brand_new, :like_new, :used, :heavily_used, :rust_bucket]
 
   def card_photo
-    return "https://source.unsplash.com/random" unless photos.any?
+    return "https://images.unsplash.com/photo-1491314768749-82db5ebd6499?w=400" unless photos.any?
     photos.ordered.first.image.url(:medium)
   end
 
@@ -44,7 +44,7 @@ class Van < ApplicationRecord
     return true if is_paid?
 
     return true if !is_for_sale?
-    
+
     false
   end
 end
