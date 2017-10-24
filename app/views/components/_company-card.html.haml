@@ -8,4 +8,4 @@
         %h2= company.name
         %p= company.location
         %p.description= truncate(company.description, :ommision => "... More", :length => 300)
-        %p= company.services_offered
+        %p.services= company.services_offered
