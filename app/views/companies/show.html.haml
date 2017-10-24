@@ -17,6 +17,7 @@
 
         .pad3.text-center
           %h1= @company.name
+          = link_to("edit company", edit_company_path(@company), class: "btn btn-default btn-sm")  if current_user == @company.user
           %p= @company.location
           %p= @company.description
           %p= @company.website_url
