@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022234448) do
+ActiveRecord::Schema.define(version: 20171025013921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20171022234448) do
     t.integer "van_credits", default: 0
     t.boolean "is_paid", default: false
     t.string "stripe_customer_id"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
@@ -125,9 +127,11 @@ ActiveRecord::Schema.define(version: 20171022234448) do
     t.integer "drivetrain"
     t.boolean "is_for_sale", default: true
     t.datetime "deleted_at"
-    t.integer "condition", default: 0
     t.bigint "company_id"
+    t.integer "condition", default: 0
     t.boolean "is_sold", default: false
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.index ["company_id"], name: "index_vans_on_company_id"
     t.index ["user_id"], name: "index_vans_on_user_id"
   end

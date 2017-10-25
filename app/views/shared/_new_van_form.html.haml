@@ -10,8 +10,10 @@
       %p.error= show_errors(@van, :title)
   .form-group
     %div{class: ('has-error' if show_errors(@van, :location).present?)}
+      = f.hidden_field :latitude
+      = f.hidden_field :longitude
       %label Location
-      = f.text_field :location, class: 'form-control', placeholder: 'Boulder, CO'
+      = f.text_field :location, class: 'form-control', id: 'locationField', placeholder: 'Boulder, CO'
       %p.error= show_errors(@van, :location)
   .form-group
     %div{class: ('has-error' if show_errors(@van, :condition).present?)}
@@ -107,3 +109,29 @@
     %label Instagram URL
     = f.text_field :instagram_url, class: 'form-control', placeholder: 'www.instagram.com/vanta'
     %p.error= show_errors(@van, :instagram_url)
+
+
+
+:javascript
+  if (typeof(google) == "undefined"){
+    var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&libraries=places&callback=init";
+        document.body.appendChild(script);
+  }else{
+    init();
+  }
+
+  function init(){
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('locationField'));
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+      var place = autocomplete.getPlace();
+
+      var latitude = place.geometry.location.lat();
+      var longitude = place.geometry.location.lng();
+
+      $('#van_latitude').val(latitude);
+      $('#van_longitude').val(longitude);
+    });
+
+  };

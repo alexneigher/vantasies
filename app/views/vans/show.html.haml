@@ -43,7 +43,12 @@
           .van-info
             .info-row
               .van-info--title Location
-              .van-info--detail= @van.location
+              .van-info--detail
+                %a{"aria-controls" => "mapContainer", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#mapContainer"}
+                  = @van.location
+                #mapContainer.collapse
+                  = link_to "https://www.google.com/maps/?q=#{@van.location}", target: "_blank" do
+                    = image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@van.location}&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyDNo6UU86VTaS0MbXOWmZz_vrs4HGs2RZ0", style: 'width: 100%;')
             .info-row
               .van-info--title Condition
               .van-info--detail= @van.condition.titleize
