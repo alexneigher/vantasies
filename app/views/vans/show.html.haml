@@ -9,7 +9,8 @@
   .slick-slider
     - @van.photos.ordered.each do |p|
       %div
-        = image_tag p.image.url(:large)
+        = link_to photo_path(p), remote: true do
+          = image_tag p.image.url(:large)
 .container
   .row
     .col-lg-10.col-lg-offset-1

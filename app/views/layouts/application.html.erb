@@ -39,23 +39,19 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <%= link_to "For Sale", vans_for_sale_path, class: ('active' if params[:controller] == 'vans/for_sale').to_s %>              
+              <%= link_to "For Sale", vans_for_sale_path, class: ('active' if params[:controller] == 'vans/for_sale').to_s %>
             </li>
             <li>
               <%= link_to "Inspiration", vans_inspiration_path, class: ('active' if params[:controller] == 'vans/inspiration').to_s%>
-              
             </li>
             <li>
               <%= link_to "Companies", companies_path, class: ('active' if params[:controller] == 'companies').to_s %>
-                
             </li>
             <li>
               <%= link_to "About", about_path, class: ('active' if params[:controller] == 'static_pages').to_s  %>
-                
             </li>
             <li>
               <%= link_to "Post a Van", new_van_path, class: 'nav-sell'  %>
-                
             </li>
             <%= render partial: 'layouts/navbar/user_links' %>
           </ul>
@@ -71,5 +67,6 @@
     <p>&copy; 2017. A <span class="superluminal"><a href="http://www.superluminal.co">Superluminal</a></span> project.</p>
   </div>
   </footer>
+  <%= render partial: 'shared/photo_modal' %>
   </body>
 </html>
