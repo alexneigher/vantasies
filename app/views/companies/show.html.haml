@@ -22,10 +22,10 @@
           %p= @company.description
           %p= @company.website_url
           .text-center.m4y
-            = link_to "Visit Company Website", @company.website_url, class: 'btn btn-primary'
+            = link_to "Visit Company Website", @company.website_url, target: '_blank', class: 'btn btn-primary'
   .row
     - @company.vans.each do |van|
-      .col-lg-4
+      .col-sm-4
         = render partial: "components/van-card", locals: {van: van}
 
 :javascript

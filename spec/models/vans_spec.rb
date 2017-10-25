@@ -11,6 +11,26 @@ RSpec.describe Van, type: :model do
     end
   end
 
+  describe "#geocoded?" do
+    context 'when lat/lon are present' do
+      let!(:user){ create(:user) }
+      let!(:van){ create(:van, user: user, latitude: 12.3123, longitude: 30.3030) }
+
+      it 'returns true' do
+        expect(van.geocoded?).to be true
+      end
+    end
+
+    context 'when lat/lon are nil' do
+      let!(:user){ create(:user) }
+      let!(:van){ create(:van, user: user, latitude: nil, longitude: nil) }
+
+      it 'returns false' do
+        expect(van.geocoded?).to be false
+      end
+    end
+  end
+
   describe "#owned_by_company?" do
     let!(:user){ create(:user) }
     let!(:company){ create(:company, user: user) }

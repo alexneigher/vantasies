@@ -14,7 +14,7 @@ RSpec.describe StripeApi::ChargeService do
 
       expect(Stripe::Charge)
         .to receive(:create)
-        .with({ :amount => 9900,
+        .with({ :amount => 2000,
                 :currency => "usd",
                 :description => "Vantasies Charge",
                 :metadata => {"user_id" => user.id, "van_id" => van.id, "user_email" => user.email},
