@@ -1,0 +1,29 @@
+.panel.pad3
+  .form-group
+    %label Company Name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.hidden_field :latitude
+    = f.hidden_field :longitude
+    %label Location
+    = f.text_field :location, class: 'form-control', id: 'locationField', placeholder: 'Boulder, CO'
+  .form-group
+    %label Description
+    = f.text_area :description, class: 'form-control'
+  .row
+    .col-lg-6
+      .form-group
+        %label Website
+        .input-group
+          .input-group-addon http://
+          = f.text_field :website_url, class: 'form-control'
+    .col-lg-6
+      .form-group
+        %label Phone Number
+        = f.text_field :phone_number, class: 'form-control'
+  .form-group
+    %label Services Offerred
+    = f.text_field :services_offered, class: 'form-control'
+
+  .form-group
+    = f.submit 'Save', class: 'btn btn-primary'
