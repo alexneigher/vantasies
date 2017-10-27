@@ -127,8 +127,8 @@ ActiveRecord::Schema.define(version: 20171025013921) do
     t.integer "drivetrain"
     t.boolean "is_for_sale", default: true
     t.datetime "deleted_at"
-    t.bigint "company_id"
     t.integer "condition", default: 0
+    t.bigint "company_id"
     t.boolean "is_sold", default: false
     t.decimal "latitude", precision: 10, scale: 6
     t.decimal "longitude", precision: 10, scale: 6
