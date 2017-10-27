@@ -1,8 +1,8 @@
 class VansController < ApplicationController
 
-  before_action :authenticate_user!, only: :new
-
   def new
+    redirect_to new_user_registration_path and return unless user_signed_in?
+
     redirect_to new_company_van_path(current_user.company) if current_user.has_company?
 
     @van = Van.new
