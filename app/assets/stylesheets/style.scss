@@ -31,6 +31,10 @@ footer{
   position: relative;
   animation: kenburns 20s infinite;
   overflow:hidden;
+  @media (max-width:480px){
+    height: auto;
+    padding-bottom: 50px;
+  }
   .homepage-header--content{
     text-align:center;
     padding-top: 20vh;
