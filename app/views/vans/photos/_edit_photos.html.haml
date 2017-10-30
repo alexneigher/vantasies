@@ -6,6 +6,7 @@
     - @van.photos.ordered.each_with_index do |p, i|
       .editable-photo{ data:{id: p.id} }
         = image_tag p.image.url(:medium)
+        = link_to 'delete', van_photo_path(@van, p), class: 'delete-photo font14 text-danger', method: :delete, remote: true
   .update-notification
   %br
   %p Upload more
@@ -17,6 +18,10 @@
 
 :javascript
   $(function() {
+    $('.edit-photos-container .delete-photo').click(function(){
+      $(this).append('<i class="fa fa-refresh fa-spin font12"></i>');
+    });
+
     $( ".edit-photos-container" ).sortable({
         update: function() {
           var ordered_photo_array = $('.editable-photo').map(function() {

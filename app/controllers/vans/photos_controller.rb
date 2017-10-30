@@ -14,6 +14,15 @@ module Vans
       end
     end
 
+    #used to delete a photo from van edit page
+    def destroy
+      @van = Van.find(params[:van_id])
+      @photo = @van.photos.find(params[:id])
+      @photo.destroy
+      
+      render :create
+    end
+
     def create
       @van = Van.find(params[:van_id])
 

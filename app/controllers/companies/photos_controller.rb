@@ -14,6 +14,15 @@ module Companies
       end
     end
 
+    #used to delete a photo from company edit page
+    def destroy
+      @company = Company.find(params[:company_id])
+      @photo = @company.photos.find(params[:id])
+      @photo.destroy
+      
+      render :create
+    end
+
     def create
       @company = Company.find(params[:company_id])
 
