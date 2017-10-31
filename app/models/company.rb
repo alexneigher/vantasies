@@ -25,7 +25,7 @@ class Company < ApplicationRecord
 
   private
     def website_url_is_absolute
-      absolute_url = self.website_url.gsub('https://','').gsub('http://','').prepend('https://')
+      absolute_url = self.website_url.gsub('https://','').gsub('http://','').prepend('http://')
       self.website_url = absolute_url
     end
 end
