@@ -19,10 +19,14 @@
           %h1= @company.name
           = link_to("edit company", edit_company_path(@company), class: "btn btn-default btn-sm")  if current_user == @company.user
           %p= @company.location
-          %p= @company.description
-          %p= @company.website_url
+          .well
+            = @company.description
+          %p.text-muted
+            = @company.services_offered
+
           .text-center.m4y
             = link_to "Visit Company Website", @company.website_url, target: '_blank', class: 'btn btn-primary'
+          %p= @company.website_url
   .row
     - @company.vans.each do |van|
       .col-sm-4
