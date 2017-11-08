@@ -11,6 +11,11 @@ class CompaniesController < ApplicationController
     @company = current_user.build_company(company_params)
 
     if @company.save
+      if params[:photos]
+        params[:photos].each { |image|
+          @company.photos.create(image: image)
+        }
+      end
       redirect_to company_path(@company)
     else
       raise 'nop'

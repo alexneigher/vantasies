@@ -21,9 +21,16 @@
       .form-group
         %label Phone Number
         = f.text_field :phone_number, class: 'form-control'
+
   .form-group
     %label Services Offerred
     = f.text_field :services_offered, class: 'form-control'
 
+  .form-group
+    %label Add as many photos as you like!
+    %br
+    .btn.btn-primary
+      = file_field_tag "photos[]", type: :file, multiple: true
+      
   .form-group
     = f.submit 'Save', class: 'btn btn-primary'
