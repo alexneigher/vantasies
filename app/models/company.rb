@@ -8,11 +8,6 @@ class Company < ApplicationRecord
 
   before_save :website_url_is_absolute
 
-  def card_photo
-    return "https://images.unsplash.com/photo-1491314768749-82db5ebd6499?w=400" unless photos.any?
-    photos.ordered.first.image.url(:medium)
-  end
-
   def original_photo
     return '' unless photos.any?
     photos.ordered.first.image.url(:original)
