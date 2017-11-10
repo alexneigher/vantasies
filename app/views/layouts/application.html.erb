@@ -60,13 +60,15 @@
     </div>
     <div class="page-wrap">
       <%= yield %>
+
+      <div class="container">
+        <div class="row text-center pad4y">
+        <p>&copy; 2017. A <span class="superluminal"><a href="http://www.superluminal.co">Superluminal</a></span> project.</p>
+      </div>
+      </div>
     </div>
 
-  <footer class="container">
-    <div class="row text-center pad4y">
-    <p>&copy; 2017. A <span class="superluminal"><a href="http://www.superluminal.co">Superluminal</a></span> project.</p>
-  </div>
-  </footer>
+
   <%= render partial: 'shared/photo_modal' %>
   </body>
 </html>

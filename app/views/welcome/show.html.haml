@@ -16,14 +16,26 @@
             = link_to "Post a Van", new_van_path, class: 'btn btn-default'
 
 .container
-  .row.text-center.pad4y
+  .row.text-center.pad4t
     .col-lg-10.col-lg-offset-1
-      %h3 Vantasies is the place for all your #vanlife needs.
+      %h2.home-section-title Find van rental or conversion companies
+  .row
+    - @companies.each do |company|
+      .col-sm-4
+        = render partial: "components/company-card", locals: {company: company}
+  .row
+    .col-md-4.col-md-offset-4.pad8b
+      = link_to 'See All Companies', companies_path, class: 'btn btn-primary btn-block'
 
 .container
+  .row.text-center
+    .col-lg-10.col-lg-offset-1
+      %h2.home-section-title Check out amazing vans!
   .row
     - @vans.each do |van|
       .col-sm-4
         = render partial: "components/van-card", locals: {van: van}
-
+  .row
+    .col-md-4.col-md-offset-4
+      = link_to 'See All Vans', vans_path, class: 'btn btn-primary btn-block'
 
